@@ -1,0 +1,220 @@
+/* --- Responsive Styles --- */
+
+/* Medium Devices (Tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    header nav {
+        display: none; /* Hide desktop nav */
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: var(--white-color);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+    }
+
+    header nav.active {
+        display: block; /* Show when active */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+        margin-left: 0;
+    }
+
+    header nav ul li a.btn-primary {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .menu-mobile {
+        display: block; /* Show mobile menu icon */
+    }
+
+    /* Adjust hero section for tablets */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2; /* Text below image */
+    }
+
+    .hero-image {
+        order: 1;
+        margin-bottom: 30px;
+    }
+
+    /* Adjust stats container */
+    .stats-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .stat-item {
+        flex-basis: 45%; /* Two items per row approx */
+    }
+
+    /* Adjust service details layout */
+    .service-detail,
+    .service-detail:nth-child(even) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Adjust contact page layout */
+    .contact-info-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* Small Devices (Landscape Phones, less than 768px) */
+@media (max-width: 767.98px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+
+    section {
+        padding: 40px 0;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .services-grid,
+    .values-grid,
+    .testimonials-slider,
+    .blog-posts-grid,
+    .services-page-content > .container { /* Add services page grid */
+        grid-template-columns: 1fr; /* Stack cards */
+        gap: 20px;
+    }
+
+    .stats-container {
+        padding: 20px;
+    }
+
+    .stat-item {
+        flex-basis: 100%; /* One item per row */
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Stack footer columns */
+        text-align: center;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+
+    /* Forms */
+    form {
+        padding: 20px;
+    }
+
+    .form-group.address-group input {
+        margin-bottom: 8px;
+    }
+}
+
+/* Extra Small Devices (Portrait Phones, less than 576px) */
+@media (max-width: 575.98px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+
+    body {
+        font-size: 15px;
+    }
+
+    header .logo a {
+        font-size: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .cta-buttons .btn-primary {
+        margin-right: 0;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+    }
+
+    .page-title p {
+        font-size: 1rem;
+    }
+
+    .service-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .post-content h2 {
+        font-size: 1.7rem;
+    }
+}
+
