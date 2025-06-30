@@ -45,13 +45,32 @@ body {
     line-height: 1.6;
     color: var(--dark-gray);
     background-color: var(--white-color);
- zoom: 0.7; 
+    /* zoom: 0.7;  Removido conforme plano anterior */
 }
 
-header {
+/* header { */
     /* Ajusta o zoom do header para compensar o do body (1 / 0.8 = 1.25) */
-    zoom: 1.4285; 
+    /* zoom: 1.4285; Removido conforme plano anterior */
+/* } */
+
+/* Aplicar transform scale para reduzir o tamanho do conteúdo principal */
+/* Usar body > section para ser mais específico, assumindo que as seções principais são filhas diretas do body */
+body > section {
+    transform: scale(0.75);
+    transform-origin: top center; /* Mudar para top center para melhor alinhamento */
+    /*
+      Compensar a largura para que o conteúdo interno (ex: .container)
+      ainda possa ocupar a largura total "percebida" antes do scale.
+      Isso pode precisar de ajustes dependendo de como as larguras internas são definidas.
+    */
+    width: 133.33%; /* 1 / 0.75 */
+    margin-left: -16.665%; /* (100% - 133.33%) / 2 para recentralizar */
+    /* Adicionar um pouco de margem no topo para compensar o espaço perdido pelo scale se necessário */
+    /* margin-top:补偿值; */
+    /* Adicionar overflow-x: hidden se o width causar scroll horizontal */
+    overflow-x: hidden;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
