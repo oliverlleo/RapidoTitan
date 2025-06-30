@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Fonte - Rapido Titan Website</title>
+    <meta name="description" content="Visualize e baixe o código fonte completo do website da Rapido Titan.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Highlight.js para sintaxe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- JSZip para download ZIP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #00579B;
+            --secondary-color: #F58634;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f4f4f4;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .text-primary { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        
+        .tab-active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .code-container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .file-tree {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .file-tree-item {
+            padding: 8px 16px;
+            border-bottom: 1px solid #21262d;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        
+        .file-tree-item:hover {
+            background: #21262d;
+        }
+        
+        .file-tree-item i {
+            margin-right: 8px;
+            width: 16px;
+        }
+        
+        .folder-icon { color: #f0d24a; }
+        .html-icon { color: #e34c26; }
+        .css-icon { color: #1572b6; }
+        .js-icon { color: #f1e05a; }
+        .image-icon { color: #f368e0; }
+        .pdf-icon { color: #ff0000; }
+        .md-icon { color: #083fa1; }
+        .video-icon { color: #ff6b6b; }
+        
+        .download-button {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            transition: all 0.3s ease;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+        }
+        
+        .progress-bar {
+            display: none;
+            background: #21262d;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 8px;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .tab-section {
+            margin-bottom: 2rem;
+        }
+
+        .tab-header {
+            background: #21262d;
+            padding: 1rem;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 2px solid #30363d;
+        }
+
+        .section-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .section-tab {
+            background: #30363d;
+            color: #c9d1d9;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .section-tab:hover {
+            background: #484f58;
+        }
+
+        .section-tab.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .code-header {
+            background: #21262d;
+            padding: 1rem;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .code-container pre {
+            margin: 0;
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00579B',
+                        secondary: '#F58634',
+                        'dark-gray': '#333333',
+                        'medium-gray': '#666666',
+                        'light-gray': '#f4f4f4'
+                    },
+                    fontFamily: {
+                        'heading': ['Poppins', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
+<body class="min-h-screen text-gray-100">
+    <!-- Header -->
+    <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center space-x-2 text-white hover:text-secondary transition-colors">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="font-heading font-semibold">Voltar ao Site</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <h1 class="font-heading text-xl font-bold text-white">Código Fonte - Rápido Titan</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Download Section -->
+        <div class="bg-gray-900 rounded-2xl p-8 mb-8 border border-gray-700">
+            <div class="text-center">
+                <h2 class="font-heading text-3xl font-bold mb-4 text-white">
+                    <i class="fas fa-download mr-3 text-secondary"></i>
+                    Download Completo
+                </h2>
+                <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+                    Baixe o código fonte completo do website da Rápido Titan com estrutura de pastas organizada, incluindo todas as páginas HTML, estilos CSS, scripts JavaScript, imagens e assets.
+                </p>
+                
+                <button id="downloadBtn" class="download-button text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-download mr-2"></i>
+                    Baixar Projeto Completo (.ZIP)
+                </button>
+                
+                <div id="progressBar" class="progress-bar max-w-md mx-auto">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                
+                <p id="downloadStatus" class="text-sm text-gray-400 mt-4"></p>
+            </div>
+        </div>
+
+        <!-- File Structure -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <div class="lg:col-span-1">
+                <h3 class="font-heading text-xl font-bold mb-4 text-white flex items-center">
+                    <i class="fas fa-folder-tree mr-2 text-secondary"></i>
+                    Estrutura do Projeto
+                </h3>
+                <div class="file-tree rounded-lg">
+                    <div class="file-tree-item">
+                        <i class="fas fa-folder folder-icon"></i>
+                        <span>rapidotitan-website/</span>
+                    </div>
+                    <!-- HTML Files -->
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>index.html</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>servicos.html</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>sobre.html</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>blog.html</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>contato.html</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>codigo.html</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-code html-icon"></i>
+                        <span>+ 10 páginas de blog/serviços</span>
+                    </div>
+                    <!-- CSS Folder -->
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-folder folder-icon"></i>
+                        <span>css/</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-code css-icon"></i>
+                        <span>style.css</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-code css-icon"></i>
+                        <span>responsive.css</span>
+                    </div>
+                    <!-- JS Folder -->
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-folder folder-icon"></i>
+                        <span>js/</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-code js-icon"></i>
+                        <span>main.js</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-code js-icon"></i>
+                        <span>animations.js</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-code js-icon"></i>
+                        <span>blog_search.js</span>
+                    </div>
+                    <!-- Images Folder -->
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-folder folder-icon"></i>
+                        <span>images/ (38 arquivos)</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-image image-icon"></i>
+                        <span>logo.png</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-image image-icon"></i>
+                        <span>hero-image.jpg</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-image image-icon"></i>
+                        <span>service-*.jpg</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-image image-icon"></i>
+                        <span>icon_*.png</span>
+                    </div>
+                    <!-- Videos Folder -->
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-folder folder-icon"></i>
+                        <span>videos/</span>
+                    </div>
+                    <div class="file-tree-item ml-8">
+                        <i class="fas fa-file-video video-icon"></i>
+                        <span>interestadual_video.mp4</span>
+                    </div>
+                    <!-- Other Files -->
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-pdf pdf-icon"></i>
+                        <span>checklist_mudanca.pdf</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-text md-icon"></i>
+                        <span>YOUWARE.md</span>
+                    </div>
+                    <div class="file-tree-item ml-4">
+                        <i class="fas fa-file-text md-icon"></i>
+                        <span>README.md</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technologies Used -->
+            <div class="lg:col-span-2">
+                <h3 class="font-heading text-xl font-bold mb-4 text-white flex items-center">
+                    <i class="fas fa-layer-group mr-2 text-secondary"></i>
+                    Tecnologias Utilizadas
+                </h3>
+                <div class="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-white mb-3 flex items-center">
+                                <i class="fab fa-html5 text-orange-500 mr-2"></i>
+                                Frontend
+                            </h4>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li>• HTML5 - Estrutura semântica</li>
+                                <li>• Tailwind CSS - Framework utilitário</li>
+                                <li>• CSS3 personalizado</li>
+                                <li>• JavaScript vanilla</li>
+                                <li>• GSAP - Animações avançadas</li>
+                                <li>• Font Awesome - Ícones</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white mb-3 flex items-center">
+                                <i class="fas fa-tools text-blue-500 mr-2"></i>
+                                Recursos
+                            </h4>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li>• Design responsivo</li>
+                                <li>• Animações scroll-triggered</li>
+                                <li>• Formulários funcionais</li>
+                                <li>• Integração WhatsApp</li>
+                                <li>• Download de arquivos</li>
+                                <li>• Performance otimizada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Sections -->
+        
+        <!-- HTML Pages Section -->
+        <div class="tab-section">
+            <div class="tab-header">
+                <h3 class="font-heading text-xl font-bold text-white flex items-center">
+                    <i class="fab fa-html5 text-orange-500 mr-2"></i>
+                    Páginas HTML
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">Todas as páginas do website com design moderno e responsivo</p>
+                <div class="section-tabs">
+                    <div class="section-tab active" data-section="html" data-tab="index">
+                        <i class="fas fa-home mr-1"></i>index.html
+                    </div>
+                    <div class="section-tab" data-section="html" data-tab="servicos">
+                        <i class="fas fa-cogs mr-1"></i>servicos.html
+                    </div>
+                    <div class="section-tab" data-section="html" data-tab="sobre">
+                        <i class="fas fa-info-circle mr-1"></i>sobre.html
+                    </div>
+                    <div class="section-tab" data-section="html" data-tab="blog">
+                        <i class="fas fa-blog mr-1"></i>blog.html
+                    </div>
+                    <div class="section-tab" data-section="html" data-tab="contato">
+                        <i class="fas fa-envelope mr-1"></i>contato.html
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="html-index">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">index.html - Página Principal</h4>
+                    <p class="text-sm text-gray-400">Landing page moderna com Tailwind CSS e animações GSAP</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Rápido Titan - Mudanças e Fretes em Sorocaba&lt;/title&gt;
+    
+    &lt;!-- Tailwind CSS --&gt;
+    &lt;script src="https://cdn.tailwindcss.com/3.4.16"&gt;&lt;/script&gt;
+    
+    &lt;!-- GSAP para animações --&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"&gt;&lt;/script&gt;
+    
+    &lt;!-- Font Awesome --&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"&gt;
+    
+    &lt;!-- Configuração personalizada --&gt;
+    &lt;style&gt;
+        :root {
+            --primary-color: #00579B;
+            --secondary-color: #F58634;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Navigation --&gt;
+    &lt;nav class="fixed top-0 w-full z-50 bg-white shadow-lg"&gt;
+        &lt;div class="max-w-6xl mx-auto px-4"&gt;
+            &lt;!-- Menu responsivo --&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    
+    &lt;!-- Hero Section --&gt;
+    &lt;section class="relative min-h-[70vh] bg-primary text-white"&gt;
+        &lt;!-- Conteúdo hero com animações GSAP --&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Seções de serviços, sobre, etc... --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="html-servicos">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">servicos.html - Página de Serviços</h4>
+                    <p class="text-sm text-gray-400">Grid de serviços com cards interativos e animações</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-html">&lt;!-- Grid de Serviços com Cards Animados --&gt;
+&lt;section class="py-20 bg-light-gray"&gt;
+    &lt;div class="container mx-auto px-4"&gt;
+        &lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+            &lt;!-- Card de Serviço --&gt;
+            &lt;div class="service-card bg-white rounded-2xl p-8 shadow-lg service-card-hover animate-on-scroll"&gt;
+                &lt;div class="w-16 h-16 mb-6 flex items-center justify-center bg-blue-50 rounded-2xl"&gt;
+                    &lt;i class="fas fa-home text-4xl text-primary"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;h3 class="font-heading text-2xl font-bold mb-4 text-primary"&gt;
+                    Mudança Residencial
+                &lt;/h3&gt;
+                &lt;p class="text-medium-gray mb-6"&gt;
+                    Gerenciamos cada etapa: planejamento, embalagem e transporte...
+                &lt;/p&gt;
+                &lt;ul class="text-medium-gray space-y-2 mb-6 text-sm"&gt;
+                    &lt;li class="flex items-center"&gt;
+                        &lt;i class="fas fa-check text-secondary mr-2"&gt;&lt;/i&gt;
+                        Planejamento completo
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;a href="#" class="bg-secondary hover:bg-orange-600 text-white px-6 py-3 rounded-lg"&gt;
+                    Solicitar Orçamento
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="html-sobre">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">sobre.html - Página Sobre Nós</h4>
+                    <p class="text-sm text-gray-400">História da empresa, valores e diferenciais</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-html">&lt;!-- Seção Nossa História --&gt;
+&lt;section class="py-20 bg-white"&gt;
+    &lt;div class="container mx-auto px-4"&gt;
+        &lt;div class="max-w-4xl mx-auto text-center animate-on-scroll"&gt;
+            &lt;h2 class="font-heading text-3xl md:text-4xl font-bold mb-8 text-primary"&gt;
+                Nossa História
+            &lt;/h2&gt;
+            &lt;p class="text-lg text-medium-gray mb-8 leading-relaxed"&gt;
+                A Rápido Titan nasceu em Sorocaba com o objetivo de revolucionar...
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Seção Valores --&gt;
+&lt;section class="py-20 bg-light-gray"&gt;
+    &lt;div class="grid grid-cols-1 md:grid-cols-3 gap-8"&gt;
+        &lt;div class="value-card bg-white p-8 rounded-2xl border-l-4 border-secondary"&gt;
+            &lt;div class="w-16 h-16 mb-6 flex items-center justify-center bg-blue-50 rounded-2xl"&gt;
+                &lt;i class="fas fa-handshake text-4xl text-primary"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;h3 class="font-heading text-2xl font-bold mb-4 text-primary"&gt;Compromisso&lt;/h3&gt;
+            &lt;p class="text-medium-gray"&gt;Sua mudança com pontualidade, cuidado e respeito...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="html-blog">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">blog.html - Página do Blog</h4>
+                    <p class="text-sm text-gray-400">Grid de artigos com cards visuais e categorias</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-html">&lt;!-- Grid de Posts do Blog --&gt;
+&lt;section class="py-20 bg-light-gray"&gt;
+    &lt;div class="container mx-auto px-4"&gt;
+        &lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+            &lt;!-- Card de Post --&gt;
+            &lt;article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"&gt;
+                &lt;div class="h-48 bg-gradient-to-br from-primary to-blue-600 relative overflow-hidden"&gt;
+                    &lt;div class="absolute inset-0 flex items-center justify-center"&gt;
+                        &lt;i class="fas fa-clipboard-check text-6xl text-white opacity-50"&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class="absolute top-4 left-4"&gt;
+                        &lt;span class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"&gt;
+                            Checklist
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="p-6"&gt;
+                    &lt;h3 class="font-heading text-xl font-bold mb-3 text-primary"&gt;
+                        Checklist Completo para Mudança Residencial
+                    &lt;/h3&gt;
+                    &lt;p class="text-medium-gray mb-4 text-sm"&gt;
+                        Organize sua mudança de forma eficiente...
+                    &lt;/p&gt;
+                    &lt;a href="blog-checklist.html" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg"&gt;
+                        Ler Mais
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="html-contato">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">contato.html - Página de Contato</h4>
+                    <p class="text-sm text-gray-400">Formulário funcional com integração WhatsApp</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-html">&lt;!-- Formulário de Contato --&gt;
+&lt;form class="space-y-6" onsubmit="sendWhatsApp()"&gt;
+    &lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;
+        &lt;div&gt;
+            &lt;label for="nome" class="block text-sm font-semibold text-dark-gray mb-2"&gt;Nome Completo&lt;/label&gt;
+            &lt;input type="text" id="nome" name="nome" required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for="telefone" class="block text-sm font-semibold text-dark-gray mb-2"&gt;Telefone&lt;/label&gt;
+            &lt;input type="tel" id="telefone" name="telefone" required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit" onclick="sendWhatsApp()" 
+            class="w-full bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold"&gt;
+        &lt;i class="fab fa-whatsapp mr-2"&gt;&lt;/i&gt;
+        Enviar via WhatsApp
+    &lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+function sendWhatsApp() {
+    event.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    // ... mais campos
+    
+    let message = `Olá! Gostaria de solicitar um orçamento. 😊\n\n`;
+    message += `**Dados do Cliente:**\n`;
+    message += `• Nome: ${nome}\n`;
+    // ... mais dados
+    
+    const whatsappUrl = `https://wa.me/5515981194338?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
+&lt;/script&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS Section -->
+        <div class="tab-section">
+            <div class="tab-header">
+                <h3 class="font-heading text-xl font-bold text-white flex items-center">
+                    <i class="fab fa-css3-alt text-blue-500 mr-2"></i>
+                    Estilos CSS
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">Estilos personalizados e responsivos do projeto</p>
+                <div class="section-tabs">
+                    <div class="section-tab active" data-section="css" data-tab="style">
+                        <i class="fas fa-paint-brush mr-1"></i>style.css
+                    </div>
+                    <div class="section-tab" data-section="css" data-tab="responsive">
+                        <i class="fas fa-mobile-alt mr-1"></i>responsive.css
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="css-style">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">css/style.css - Estilos Principais</h4>
+                    <p class="text-sm text-gray-400">Variáveis CSS, tipografia e componentes principais</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-css">/* --- Global Styles & Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+    /* Colors */
+    --primary-color: #00579B;
+    --secondary-color: #F58634;
+    --dark-gray: #333333;
+    --medium-gray: #666666;
+    --light-gray: #f4f4f4;
+    --white-color: #ffffff;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+
+    /* Fonts */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--white-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all var(--transition-speed) ease;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #003d6b;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #e5762e;
+    transform: translateY(-2px);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="css-responsive">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">css/responsive.css - Estilos Responsivos</h4>
+                    <p class="text-sm text-gray-400">Media queries e adaptações para diferentes dispositivos</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-css">/* --- Responsive Design --- */
+
+/* Mobile First Approach */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .logo {
+        max-width: 120px;
+    }
+    
+    /* Mobile Menu */
+    nav {
+        display: none;
+        width: 100%;
+    }
+    
+    nav.active {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .menu-mobile {
+        display: block;
+        cursor: pointer;
+        padding: 8px;
+    }
+    
+    .menu-mobile span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--dark-gray);
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+    
+    /* Hero Section Mobile */
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    /* Services Grid Mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Contact Form Mobile */
+    .contact-form .form-row {
+        flex-direction: column;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+    }
+}
+
+/* High Resolution Displays */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero h1 {
+        font-size: 5rem;
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript Section -->
+        <div class="tab-section">
+            <div class="tab-header">
+                <h3 class="font-heading text-xl font-bold text-white flex items-center">
+                    <i class="fab fa-js-square text-yellow-500 mr-2"></i>
+                    Scripts JavaScript
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">Funcionalidades interativas e animações</p>
+                <div class="section-tabs">
+                    <div class="section-tab active" data-section="js" data-tab="main">
+                        <i class="fas fa-cogs mr-1"></i>main.js
+                    </div>
+                    <div class="section-tab" data-section="js" data-tab="animations">
+                        <i class="fas fa-magic mr-1"></i>animations.js
+                    </div>
+                    <div class="section-tab" data-section="js" data-tab="blog_search">
+                        <i class="fas fa-search mr-1"></i>blog_search.js
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="js-main">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">js/main.js - Script Principal</h4>
+                    <p class="text-sm text-gray-400">Menu mobile, smooth scrolling e funcionalidades gerais</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", function() {
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector(".menu-mobile");
+    const nav = document.querySelector("header nav");
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener("click", function() {
+            nav.classList.toggle("active");
+            menuToggle.classList.toggle("active");
+        });
+    }
+
+    // Smooth scrolling for internal links
+    const internalLinks = document.querySelectorAll("a[href^=\"#\"]");
+    internalLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            const targetId = this.getAttribute("href");
+            if (targetId.length > 1) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                    // Close mobile menu if open
+                    if (nav && nav.classList.contains("active")) {
+                        nav.classList.remove("active");
+                        menuToggle.classList.remove("active");
+                    }
+                }
+            }
+        });
+    });
+
+    // Form validation
+    const forms = document.querySelectorAll("form");
+    forms.forEach(form => {
+        form.addEventListener("submit", function(e) {
+            const requiredFields = form.querySelectorAll("[required]");
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add("error");
+                } else {
+                    field.classList.remove("error");
+                }
+            });
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert("Por favor, preencha todos os campos obrigatórios.");
+            }
+        });
+    });
+
+    // Header scroll effect
+    const header = document.querySelector("header");
+    if (header) {
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 100) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    }
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="js-animations">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">js/animations.js - Animações</h4>
+                    <p class="text-sm text-gray-400">Animações CSS e efeitos visuais</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-javascript">// Fade in animation on scroll
+function fadeInOnScroll() {
+    const elements = document.querySelectorAll('.fade-in-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Counter animation
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        // Start animation when element is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        observer.observe(counter);
+    });
+}
+
+// Parallax effect
+function parallaxEffect() {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.getAttribute('data-speed') || 0.5;
+            const yPos = -(scrollTop * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+}
+
+// Initialize animations
+document.addEventListener('DOMContentLoaded', function() {
+    fadeInOnScroll();
+    animateCounters();
+    parallaxEffect();
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="js-blog_search">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">js/blog_search.js - Busca no Blog</h4>
+                    <p class="text-sm text-gray-400">Funcionalidade de busca e filtros para o blog</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-javascript">// Blog search functionality
+class BlogSearch {
+    constructor() {
+        this.posts = [];
+        this.filteredPosts = [];
+        this.searchInput = document.querySelector('#blog-search');
+        this.categoryFilter = document.querySelector('#category-filter');
+        this.postsContainer = document.querySelector('#posts-container');
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadPosts();
+        this.bindEvents();
+    }
+    
+    loadPosts() {
+        // Load blog posts data
+        this.posts = [
+            {
+                title: 'Checklist Completo para Mudança Residencial',
+                category: 'checklist',
+                content: 'Organize sua mudança de forma eficiente...',
+                url: 'blog-checklist.html'
+            },
+            {
+                title: 'Como Fazer Mudança Comercial Sem Parar o Negócio',
+                category: 'comercial',
+                content: 'Estratégias para mudar sua empresa...',
+                url: 'blog-commercial-move.html'
+            }
+            // ... more posts
+        ];
+        
+        this.filteredPosts = [...this.posts];
+    }
+    
+    bindEvents() {
+        if (this.searchInput) {
+            this.searchInput.addEventListener('input', (e) => {
+                this.search(e.target.value);
+            });
+        }
+        
+        if (this.categoryFilter) {
+            this.categoryFilter.addEventListener('change', (e) => {
+                this.filterByCategory(e.target.value);
+            });
+        }
+    }
+    
+    search(query) {
+        const searchTerm = query.toLowerCase();
+        
+        this.filteredPosts = this.posts.filter(post => 
+            post.title.toLowerCase().includes(searchTerm) ||
+            post.content.toLowerCase().includes(searchTerm)
+        );
+        
+        this.renderPosts();
+    }
+    
+    filterByCategory(category) {
+        if (category === 'all') {
+            this.filteredPosts = [...this.posts];
+        } else {
+            this.filteredPosts = this.posts.filter(post => 
+                post.category === category
+            );
+        }
+        
+        this.renderPosts();
+    }
+    
+    renderPosts() {
+        if (!this.postsContainer) return;
+        
+        if (this.filteredPosts.length === 0) {
+            this.postsContainer.innerHTML = `
+                &lt;div class="no-results"&gt;
+                    &lt;p&gt;Nenhum post encontrado.&lt;/p&gt;
+                &lt;/div&gt;
+            `;
+            return;
+        }
+        
+        const postsHTML = this.filteredPosts.map(post => `
+            &lt;article class="blog-card"&gt;
+                &lt;h3&gt;&lt;a href="${post.url}"&gt;${post.title}&lt;/a&gt;&lt;/h3&gt;
+                &lt;p&gt;${post.content}&lt;/p&gt;
+                &lt;span class="category"&gt;${post.category}&lt;/span&gt;
+            &lt;/article&gt;
+        `).join('');
+        
+        this.postsContainer.innerHTML = postsHTML;
+    }
+}
+
+// Initialize blog search when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    new BlogSearch();
+});</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documentation Section -->
+        <div class="tab-section">
+            <div class="tab-header">
+                <h3 class="font-heading text-xl font-bold text-white flex items-center">
+                    <i class="fas fa-file-text text-blue-400 mr-2"></i>
+                    Documentação
+                </h3>
+                <p class="text-gray-400 text-sm mt-1">README e documentação do projeto</p>
+                <div class="section-tabs">
+                    <div class="section-tab active" data-section="docs" data-tab="readme">
+                        <i class="fas fa-readme mr-1"></i>README.md
+                    </div>
+                    <div class="section-tab" data-section="docs" data-tab="youware">
+                        <i class="fas fa-cog mr-1"></i>YOUWARE.md
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="docs-readme">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">README.md - Documentação Principal</h4>
+                    <p class="text-sm text-gray-400">Instruções de instalação, uso e personalização</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-markdown"># Rápido Titan Website
+
+Website moderno para empresa de mudanças e fretes em Sorocaba.
+
+## 🚀 Tecnologias
+
+- **HTML5** - Estrutura semântica
+- **Tailwind CSS** - Framework CSS utilitário via CDN
+- **GSAP** - Animações avançadas
+- **Font Awesome** - Ícones vetoriais
+- **JavaScript** - Interatividade e funcionalidades
+
+## 📱 Recursos
+
+- ✅ Design responsivo (mobile-first)
+- ✅ Animações fluidas com GSAP
+- ✅ Integração WhatsApp para orçamentos
+- ✅ Formulários funcionais
+- ✅ Performance otimizada
+- ✅ SEO friendly
+
+## 🛠️ Como usar
+
+1. Faça o download dos arquivos
+2. Abra index.html no navegador
+3. Ou use um servidor local:
+
+```bash
+# Com Python
+python -m http.server 8000
+
+# Com Node.js
+npx serve .
+```
+
+## 🎨 Personalização
+
+### Paleta de Cores
+- **Primária**: #00579B (Azul corporativo)
+- **Secundária**: #F58634 (Laranja vibrante)
+
+### Configuração Tailwind
+```javascript
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#00579B',
+                secondary: '#F58634'
+            }
+        }
+    }
+}
+```
+
+## 📞 Contato
+
+**Rápido Titan Mudanças e Fretes**
+- WhatsApp: (15) 98119-4338
+- Email: contato@rapidotitan.com.br
+- Localização: Sorocaba/SP</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="docs-youware">
+                <div class="code-header">
+                    <h4 class="font-semibold text-white">YOUWARE.md - Documentação de Desenvolvimento</h4>
+                    <p class="text-sm text-gray-400">Estrutura do projeto e diretrizes para desenvolvimento</p>
+                </div>
+                <div class="code-container">
+                    <pre><code class="language-markdown"># Rapido Titan Website
+
+Este é o código-fonte do website da Rapido Titan, uma empresa de mudanças e fretes em Sorocaba.
+
+## Estrutura do Projeto
+
+```
+src/
+  ├── css/                    # Arquivos CSS
+  │   ├── responsive.css      # Estilos responsivos
+  │   └── style.css           # Estilos principais 
+  ├── images/                 # Imagens e ícones
+  ├── js/                     # Arquivos JavaScript
+  ├── videos/                 # Arquivos de vídeo
+  ├── blog-*.html             # Páginas individuais de blog
+  ├── servico-*.html          # Páginas individuais de serviços
+  ├── blog.html               # Página principal do blog
+  ├── codigo.html             # Página de visualização de código
+  ├── contato.html            # Página de contato
+  ├── index.html              # Página inicial
+  ├── servicos.html           # Página de serviços
+  └── sobre.html              # Página sobre nós
+```
+
+## Tecnologias Utilizadas
+
+- **HTML5** - Estrutura semântica
+- **CSS3** - Estilos personalizados
+- **Tailwind CSS** - Framework de utilidades CSS via CDN
+- **JavaScript** - Funcionalidades interativas
+- **GSAP** - Biblioteca para animações avançadas
+- **Font Awesome** - Biblioteca de ícones
+
+## Recursos de Design
+
+### Cores da Marca
+- **Azul Primário**: `#00579B`
+- **Laranja Secundário**: `#F58634`
+- **Cinza Escuro**: `#333333`
+- **Cinza Médio**: `#666666`
+- **Cinza Claro**: `#f4f4f4`
+
+### Tipografia
+- **Títulos**: Poppins (500, 600, 700)
+- **Corpo de texto**: Roboto (400, 700)</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Highlight.js initialization
+        hljs.highlightAll();
+        
+        // Tab functionality for sections
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.section-tab')) {
+                const section = e.target.getAttribute('data-section');
+                const tab = e.target.getAttribute('data-tab');
+                
+                // Remove active from all tabs in this section
+                const sectionTabs = e.target.parentElement.querySelectorAll('.section-tab');
+                sectionTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active to clicked tab
+                e.target.classList.add('active');
+                
+                // Hide all tab contents in this section
+                const tabContents = document.querySelectorAll(`[id^="${section}-"]`);
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Show selected tab content
+                const selectedContent = document.getElementById(`${section}-${tab}`);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                    // Re-highlight code in the new tab
+                    hljs.highlightAll();
+                }
+            }
+        });
+        
+        // Download functionality with ALL files
+        document.getElementById('downloadBtn').addEventListener('click', async function() {
+            const button = this;
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            const status = document.getElementById('downloadStatus');
+            
+            // Disable button and show progress
+            button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Preparando download...';
+            progressBar.style.display = 'block';
+            
+            try {
+                const zip = new JSZip();
+                
+                // HTML files
+                const htmlFiles = [
+                    'index.html', 'servicos.html', 'sobre.html', 'blog.html', 'contato.html', 'codigo.html',
+                    'blog-checklist.html', 'blog-commercial-move.html', 'blog-packing.html', 
+                    'blog-special-items.html', 'blog-stress.html',
+                    'servico-comercial.html', 'servico-embalagem.html', 'servico-fretes.html',
+                    'servico-interestadual.html', 'servico-montagem-moveis.html', 'servico-organize.html',
+                    'servico-residencial.html'
+                ];
+                
+                // CSS files
+                const cssFiles = [
+                    'css/style.css', 'css/responsive.css'
+                ];
+                
+                // JS files
+                const jsFiles = [
+                    'js/main.js', 'js/animations.js', 'js/blog_search.js'
+                ];
+                
+                // Image files
+                const imageFiles = [
+                    'images/logo.png', 'images/footer_logo.png', 'images/hero-image.jpg', 'images/favicon.ico',
+                    'images/service-residencial.jpg', 'images/service-comercial.jpg', 'images/service-fretes.jpg',
+                    'images/service-embalagem.jpg', 'images/service-montagem-moveis.jpg', 'images/service-Organize.jpg',
+                    'images/service-interestadual.jpg', 'images/blog_checklist.jpeg', 'images/blog_packing.jpeg',
+                    'images/blog_stress.jpeg', 'images/blog-checklist-full.jpg', 'images/blog-packing-full.jpg',
+                    'images/blog-stress-full.jpg'
+                ];
+                
+                // Other files
+                const otherFiles = [
+                    'videos/interestadual_video.mp4',
+                    'checklist_mudanca_residencial_rapido_titan.pdf',
+                    'README.md', 'YOUWARE.md'
+                ];
+                
+                const allFiles = [...htmlFiles, ...cssFiles, ...jsFiles, ...imageFiles, ...otherFiles];
+                let completed = 0;
+                
+                // Add README content
+                const readmeContent = `# Rápido Titan Website
+
+Website moderno para empresa de mudanças e fretes em Sorocaba.
+
+## 🚀 Tecnologias
+
+- **HTML5** - Estrutura semântica
+- **Tailwind CSS** - Framework CSS utilitário via CDN
+- **GSAP** - Animações avançadas
+- **Font Awesome** - Ícones vetoriais
+- **JavaScript** - Interatividade e funcionalidades
+
+## 📱 Recursos
+
+- ✅ Design responsivo (mobile-first)
+- ✅ Animações fluidas com GSAP
+- ✅ Integração WhatsApp para orçamentos
+- ✅ Formulários funcionais
+- ✅ Performance otimizada
+- ✅ SEO friendly
+
+## 🛠️ Como usar
+
+1. Faça o download dos arquivos
+2. Abra index.html no navegador
+3. Ou use um servidor local:
+
+\`\`\`bash
+# Com Python
+python -m http.server 8000
+
+# Com Node.js
+npx serve .
+\`\`\`
+
+## 📂 Estrutura
+
+\`\`\`
+rapidotitan-website/
+├── index.html              # Página principal
+├── servicos.html           # Página de serviços
+├── sobre.html              # Sobre a empresa
+├── blog.html               # Blog e artigos
+├── contato.html            # Formulário de contato
+├── codigo.html             # Visualização de código
+├── css/                    # Estilos CSS
+├── js/                     # Scripts JavaScript
+├── images/                 # Imagens e ícones
+├── videos/                 # Arquivos de vídeo
+└── README.md               # Este arquivo
+\`\`\`
+
+## 🎨 Personalização
+
+### Paleta de Cores
+- **Primária**: #00579B (Azul corporativo)
+- **Secundária**: #F58634 (Laranja vibrante)
+
+### Configuração Tailwind
+\`\`\`javascript
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#00579B',
+                secondary: '#F58634'
+            }
+        }
+    }
+}
+\`\`\`
+
+## 📞 Contato
+
+**Rápido Titan Mudanças e Fretes**
+- WhatsApp: (15) 98119-4338
+- Email: contato@rapidotitan.com.br
+- Localização: Sorocaba/SP
+
+---
+
+**Desenvolvido com ❤️ para Rápido Titan**`;
+
+                zip.file('README.md', readmeContent);
+                
+                // Download all files
+                for (const file of allFiles) {
+                    try {
+                        status.textContent = `Baixando ${file}...`;
+                        
+                        // For binary files (images, videos, pdfs), fetch as blob
+                        const isBinary = file.match(/\.(jpg|jpeg|png|gif|ico|mp4|pdf)$/i);
+                        
+                        if (isBinary) {
+                            const response = await fetch(`./${file}`);
+                            if (response.ok) {
+                                const blob = await response.blob();
+                                zip.file(file, blob);
+                            }
+                        } else {
+                            // For text files (HTML, CSS, JS), fetch as text
+                            const response = await fetch(`./${file}`);
+                            if (response.ok) {
+                                const content = await response.text();
+                                zip.file(file, content);
+                            }
+                        }
+                        
+                        completed++;
+                        const progress = (completed / allFiles.length) * 100;
+                        progressFill.style.width = progress + '%';
+                        
+                        // Small delay for visual feedback
+                        await new Promise(resolve => setTimeout(resolve, 50));
+                    } catch (error) {
+                        console.error(`Erro ao baixar ${file}:`, error);
+                    }
+                }
+                
+                // Generate and download ZIP
+                status.textContent = 'Gerando arquivo ZIP...';
+                const zipBlob = await zip.generateAsync({type: 'blob'});
+                
+                // Create download link
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(zipBlob);
+                link.download = 'rapidotitan-website-completo.zip';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Success feedback
+                status.textContent = 'Download concluído com sucesso! 🎉';
+                button.innerHTML = '<i class="fas fa-check mr-2"></i>Download Concluído!';
+                button.classList.add('bg-green-500');
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-download mr-2"></i>Baixar Projeto Completo (.ZIP)';
+                    button.classList.remove('bg-green-500');
+                    button.disabled = false;
+                    progressBar.style.display = 'none';
+                    progressFill.style.width = '0%';
+                    status.textContent = '';
+                }, 3000);
+                
+            } catch (error) {
+                console.error('Erro no download:', error);
+                status.textContent = 'Erro no download. Tente novamente.';
+                button.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Erro - Tentar Novamente';
+                button.disabled = false;
+                progressBar.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

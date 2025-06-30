@@ -5,124 +5,507 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Rapido Titan Mudanças e Fretes</title>
     <meta name="description" content="Entre em contato com a Rapido Titan para dúvidas, informações ou orçamentos sobre mudanças e fretes em Sorocaba.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- GSAP para animações avançadas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
-    <link rel="icon" href="/images/favicon.ico">
-    <!-- Animate.css CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <!-- CSS Principal -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- CSS Responsivo -->
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <img src="images/logo.png" alt="Logo Rapido Titan" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="servicos.html">Serviços</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-
-                </ul>
-            </nav>
-            <div class="menu-mobile">
-                <span></span>
-                <span></span>
-                <span></span>
+    <link rel="icon" href="images/favicon.ico">
+    
+    <style>
+        :root {
+            --primary-color: #00579B;
+            --secondary-color: #F58634;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f4f4f4;
+            --white-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .contact-card-hover {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .contact-card-hover:hover {
+            transform: translateY(-5px);
+        }
+        
+        .text-primary { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        .border-primary { border-color: var(--primary-color); }
+        .border-secondary { border-color: var(--secondary-color); }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00579B',
+                        secondary: '#F58634',
+                        'dark-gray': '#333333',
+                        'medium-gray': '#666666',
+                        'light-gray': '#f4f4f4'
+                    },
+                    fontFamily: {
+                        'heading': ['Poppins', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
+<body class="text-dark-gray antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <img src="images/logo.png" alt="Logo Rápido Titan" class="h-12 w-auto">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Início</a>
+                        <a href="servicos.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Serviços</a>
+                        <a href="sobre.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Sobre</a>
+                        <a href="blog.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Blog</a>
+                        <a href="contato.html" class="nav-link text-primary transition-colors duration-300 font-heading font-medium">Contato</a>
+                        <a href="https://wa.me/5515981194338" target="_blank" class="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 font-heading font-semibold">
+                            Orçamento
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-dark-gray hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
-
-    <main>
-        <!-- Título da Página -->
-        <section class="page-title">
-            <div class="container">
-                <h1>Fale Conosco</h1>
-                <p>Estamos prontos para atender você.</p>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Início</a>
+                <a href="servicos.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Serviços</a>
+                <a href="sobre.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Sobre</a>
+                <a href="blog.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Blog</a>
+                <a href="contato.html" class="block px-3 py-2 text-primary font-heading">Contato</a>
+                <a href="https://wa.me/5515981194338" target="_blank" class="block mx-3 my-2 bg-secondary text-white px-4 py-2 rounded-lg text-center font-heading">Orçamento</a>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Conteúdo de Contato -->
-        <section class="contact-page-content">
-            <div class="container">
-                <div class="contact-info-wrapper">
-                    <div class="contact-text">
-                        <h3>Entre em Contato</h3>
-                        <p>Tem alguma dúvida sobre nossos serviços? Precisa de informações adicionais ou quer discutir sua necessidade específica de mudança ou frete? A equipe da Rapido Titan está à sua disposição! Utilize um dos canais abaixo. Nosso <strong>compromisso</strong> é oferecer um atendimento ágil e atencioso.</p>
-                        
-                        <h3>Nossos Canais:</h3>
-                        <ul class="contact-details">
-                            <li><i class="icon-phone"></i> <strong>Telefone:</strong> <a href="tel:+5515981194338">(15) 98119-4338</a></li>
-                            <li><i class="icon-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" target="_blank">(15) 98119-4338</a></li>
-                            <li><i class="icon-email"></i> <strong>E-mail:</strong> <a href="mailto:contato@rapidotitan.com.br">contato@rapidotitan.com.br</a></li>
-                            <li><i class="icon-location"></i> <strong>Endereço:</strong> R. José Alexandre Felisberto, 208 - Jardim Santa Lucia, Sorocaba - SP, 18078-698, Sorocaba/SP</li>
-                            <li><i class="icon-clock"></i> <strong>Horário:</strong> Seg a Sex: 08h às 18h | Sáb: 08h às 12h</li>
-                        </ul>
-                        
+    <!-- Page Header -->
+    <section class="relative pt-24 pb-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 animate-on-scroll">
+                Fale Conosco
+            </h1>
+            <p class="text-xl opacity-90 max-w-3xl mx-auto animate-on-scroll">
+                Estamos prontos para atender você
+            </p>
+        </div>
+    </section>
 
+    <!-- Contact Methods -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- WhatsApp -->
+                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-green-50 rounded-2xl">
+                        <i class="fab fa-whatsapp text-4xl text-green-500"></i>
                     </div>
-                    <div class="map-container">
-                        <h3>Nossa Localização</h3>
-                        <!-- Incorporar mapa do Google Maps aqui -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.4022940167224!2d-47.46828928819404!3d-23.445949057275904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5f59e571a22b7%3A0x483f325bb00d86a1!2sR.%20Jos%C3%A9%20Alexandre%20Felisberto%2C%20208%20-%20Jardim%20Santa%20Lucia%2C%20Sorocaba%20-%20SP%2C%2018078-698%2C%20Brazil!5e0!3m2!1sen!2sus!4v1746201333762!5m2!1sen!2sus" width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">WhatsApp</h3>
+                    <p class="text-medium-gray mb-6 text-sm">
+                        Resposta rápida para orçamentos e dúvidas
+                    </p>
+                    <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" 
+                       target="_blank" 
+                       class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 w-full">
+                        (15) 98119-4338
+                    </a>
                 </div>
 
-            </div>
-        </section>
-    </main>
+                <!-- Telefone -->
+                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll" data-delay="0.1">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-blue-50 rounded-2xl">
+                        <i class="fas fa-phone text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">Telefone</h3>
+                    <p class="text-medium-gray mb-6 text-sm">
+                        Ligue diretamente para nós
+                    </p>
+                    <a href="tel:+5515981194338" 
+                       class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 w-full">
+                        (15) 98119-4338
+                    </a>
+                </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html">Rapido Titan</a>
-                    <p>Seu patrimônio, nosso compromisso.</p>
-                    <img src="images/footer_logo.png" alt="Logo Rapido Titan Rodapé" class="footer-logo-img">
+                <!-- Email -->
+                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll" data-delay="0.2">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-orange-50 rounded-2xl">
+                        <i class="fas fa-envelope text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">Email</h3>
+                    <p class="text-medium-gray mb-6 text-sm">
+                        Envie sua mensagem por email
+                    </p>
+                    <a href="mailto:contato@rapidotitan.com.br" 
+                       class="bg-secondary hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm">
+                        contato@rapidotitan.com.br
+                    </a>
+                </div>
+
+                <!-- Localização -->
+                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll" data-delay="0.3">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-red-50 rounded-2xl">
+                        <i class="fas fa-map-marker-alt text-4xl text-red-500"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">Localização</h3>
+                    <p class="text-medium-gray mb-6 text-sm">
+                        Atendemos Sorocaba e região
+                    </p>
+                    <div class="bg-gray-100 text-dark-gray px-6 py-3 rounded-lg font-semibold w-full">
+                        Sorocaba/SP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-primary">
+                        Solicite Seu Orçamento
+                    </h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                        Preencha o formulário abaixo ou entre em contato diretamente via WhatsApp para receber seu orçamento personalizado
+                    </p>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="servicos.html">Serviços</a></li>
-                        <li><a href="sobre.html">Sobre Nós</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contato.html">Contato</a></li>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Formulário -->
+                    <div class="animate-on-scroll">
+                        <form class="space-y-6" action="https://wa.me/5515981194338" method="get" target="_blank">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="nome" class="block text-sm font-semibold text-dark-gray mb-2">Nome Completo</label>
+                                    <input type="text" id="nome" name="nome" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label for="telefone" class="block text-sm font-semibold text-dark-gray mb-2">Telefone</label>
+                                    <input type="tel" id="telefone" name="telefone" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-dark-gray mb-2">Email</label>
+                                <input type="email" id="email" name="email" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="origem" class="block text-sm font-semibold text-dark-gray mb-2">Endereço de Origem</label>
+                                    <input type="text" id="origem" name="origem" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label for="destino" class="block text-sm font-semibold text-dark-gray mb-2">Endereço de Destino</label>
+                                    <input type="text" id="destino" name="destino" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="servico" class="block text-sm font-semibold text-dark-gray mb-2">Tipo de Serviço</label>
+                                <select id="servico" name="servico" required 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                    <option value="">Selecione o serviço</option>
+                                    <option value="Mudança Residencial">Mudança Residencial</option>
+                                    <option value="Mudança Comercial">Mudança Comercial</option>
+                                    <option value="Frete Rápido">Frete Rápido</option>
+                                    <option value="Mudança Interestadual">Mudança Interestadual</option>
+                                    <option value="Embalagem Profissional">Embalagem Profissional</option>
+                                    <option value="Montagem de Móveis">Montagem de Móveis</option>
+                                    <option value="Organize">Organize (Guarda-móveis)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="detalhes" class="block text-sm font-semibold text-dark-gray mb-2">Detalhes da Mudança</label>
+                                <textarea id="detalhes" name="detalhes" rows="4" 
+                                          placeholder="Descreva os principais itens a transportar (ex: geladeira, sofá, cama, caixas...)"
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"></textarea>
+                            </div>
+                            
+                            <button type="submit" onclick="sendWhatsApp()" 
+                                    class="w-full bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105">
+                                <i class="fab fa-whatsapp mr-2"></i>
+                                Enviar via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Info adicional -->
+                    <div class="animate-on-scroll" data-delay="0.1">
+                        <div class="bg-light-gray p-8 rounded-2xl">
+                            <h3 class="font-heading text-2xl font-bold mb-6 text-primary">
+                                Por que escolher a Rápido Titan?
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark-gray">Orçamento Gratuito</h4>
+                                        <p class="text-medium-gray text-sm">Sem compromisso e resposta rápida</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark-gray">Equipe Especializada</h4>
+                                        <p class="text-medium-gray text-sm">Profissionais treinados e experientes</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark-gray">Seguro Opcional</h4>
+                                        <p class="text-medium-gray text-sm">Proteção total para seus bens</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark-gray">Atendimento 24h</h4>
+                                        <p class="text-medium-gray text-sm">Suporte via WhatsApp quando precisar</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-6 bg-white rounded-xl border-l-4 border-secondary">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-primary">4.9</div>
+                                    <div class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
+                                    <p class="text-sm text-medium-gray mt-1">Avaliação no Google</p>
+                                    <p class="text-xs text-medium-gray">Baseado em mais de 2.000 mudanças</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Business Hours -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="animate-on-scroll">
+                <h2 class="font-heading text-3xl font-bold mb-8">Horários de Atendimento</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div>
+                        <h3 class="font-heading text-xl font-semibold mb-4">WhatsApp</h3>
+                        <p class="opacity-90">24 horas por dia</p>
+                        <p class="opacity-90">7 dias por semana</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-heading text-xl font-semibold mb-4">Telefone</h3>
+                        <p class="opacity-90">Segunda a Sexta: 8h às 18h</p>
+                        <p class="opacity-90">Sábado: 8h às 12h</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-heading text-xl font-semibold mb-4">Email</h3>
+                        <p class="opacity-90">Resposta em até 2 horas</p>
+                        <p class="opacity-90">Todos os dias</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-light-gray py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-12 w-auto mr-3">
+                        <span class="font-heading text-2xl font-bold text-white">Rápido Titan</span>
+                    </div>
+                    <p class="text-gray-400">Seu patrimônio, nosso compromisso.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4 font-heading">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-secondary transition-colors">Início</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-secondary transition-colors">Serviços</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-secondary transition-colors">Sobre Nós</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-secondary transition-colors">Blog</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-secondary transition-colors">Contato</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><i class="icon-phone"></i> <a href="tel:+5515981194338">(15) 98119-4338</a></li>
-                        <li><i class="icon-whatsapp"></i> <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" target="_blank">(15) 98119-4338</a></li>
-                        <li><i class="icon-email"></i> contato@rapidotitan.com.br</li>
-                        <li><i class="icon-location"></i> Sorocaba/SP</li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 font-heading">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">📱</span>
+                            <a href="tel:+5515981194338" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">💬</span>
+                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">📧</span>
+                            <span class="text-gray-400">contato@rapidotitan.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">📍</span>
+                            <span class="text-gray-400">Sorocaba/SP</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <div class="footer-social">
-                    <h4>Redes Sociais</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" class="icon-facebook"></a>
-                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" class="icon-instagram"></a>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 font-heading">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📘</a>
+                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📷</a>
                     </div>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 Rapido Titan. Todos os direitos reservados.</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
+                <p class="mt-2"><a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors"><i class="fas fa-code"></i> Ver Código</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts JS -->
-    <script src="js/main.js"></script>
-    <script src="js/form-handler.js"></script> <!-- Específico para formulários -->
+    <script>
+        // GSAP Animations Setup
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate on Scroll Elements
+        gsap.utils.toArray(".animate-on-scroll").forEach((element, index) => {
+            const delay = element.getAttribute("data-delay") || 0;
+            
+            gsap.fromTo(element, {
+                opacity: 0,
+                y: 50
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: delay,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%"
+                }
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Hide mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // WhatsApp Form Submission
+        function sendWhatsApp() {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const email = document.getElementById('email').value;
+            const origem = document.getElementById('origem').value;
+            const destino = document.getElementById('destino').value;
+            const servico = document.getElementById('servico').value;
+            const detalhes = document.getElementById('detalhes').value;
+            
+            let message = `Olá! Gostaria de solicitar um orçamento. 😊\n\n`;
+            message += `**Dados do Cliente:**\n`;
+            message += `• Nome: ${nome}\n`;
+            message += `• Telefone: ${telefone}\n`;
+            if (email) message += `• Email: ${email}\n`;
+            message += `\n**Detalhes do Serviço:**\n`;
+            message += `• Tipo: ${servico}\n`;
+            message += `• Origem: ${origem}\n`;
+            message += `• Destino: ${destino}\n`;
+            if (detalhes) message += `• Detalhes: ${detalhes}\n`;
+            message += `\nAguardo seu contato! Obrigado!`;
+            
+            const whatsappUrl = `https://wa.me/5515981194338?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 </body>
 </html>

@@ -5,155 +5,426 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós - Rapido Titan Mudanças e Fretes</title>
     <meta name="description" content="Conheça a Rapido Titan, empresa de mudanças e fretes em Sorocaba focada em compromisso, agilidade e segurança.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- GSAP para animações avançadas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
-    <link rel="icon" href="/images/favicon.ico">
-    <!-- Animate.css CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <!-- CSS Principal -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- CSS Responsivo -->
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-         <img src="images/logo.png" alt="Logo Rapido Titan" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="servicos.html">Serviços</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-
-                </ul>
-            </nav>
-            <div class="menu-mobile">
-                <span></span>
-                <span></span>
-                <span></span>
+    <link rel="icon" href="images/favicon.ico">
+    
+    <style>
+        :root {
+            --primary-color: #00579B;
+            --secondary-color: #F58634;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f4f4f4;
+            --white-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .text-primary { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        .border-primary { border-color: var(--primary-color); }
+        .border-secondary { border-color: var(--secondary-color); }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00579B',
+                        secondary: '#F58634',
+                        'dark-gray': '#333333',
+                        'medium-gray': '#666666',
+                        'light-gray': '#f4f4f4'
+                    },
+                    fontFamily: {
+                        'heading': ['Poppins', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
+<body class="text-dark-gray antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <img src="images/logo.png" alt="Logo Rápido Titan" class="h-12 w-auto">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Início</a>
+                        <a href="servicos.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Serviços</a>
+                        <a href="sobre.html" class="nav-link text-primary transition-colors duration-300 font-heading font-medium">Sobre</a>
+                        <a href="blog.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Blog</a>
+                        <a href="contato.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Contato</a>
+                        <a href="https://wa.me/5515981194338" target="_blank" class="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 font-heading font-semibold">
+                            Orçamento
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-dark-gray hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
-
-    <main>
-        <!-- Título da Página -->
-        <section class="page-title">
-            <div class="container">
-                <h1>Conheça a Rapido Titan</h1>
-                <p>Compromisso, Agilidade e Segurança em Cada Mudança</p>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Início</a>
+                <a href="servicos.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Serviços</a>
+                <a href="sobre.html" class="block px-3 py-2 text-primary font-heading">Sobre</a>
+                <a href="blog.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Blog</a>
+                <a href="contato.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Contato</a>
+                <a href="https://wa.me/5515981194338" target="_blank" class="block mx-3 my-2 bg-secondary text-white px-4 py-2 rounded-lg text-center font-heading">Orçamento</a>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Conteúdo Sobre Nós -->
-        <section class="about-content">
-            <div class="container">
-                <div class="about-text">
-                    <h2>Nossa História e Missão</h2>
-                    <p>Mais do que uma simples empresa de fretes e mudanças em Sorocaba, a Rapido Titan nasceu do desejo de transformar um processo muitas vezes estressante em uma experiência positiva e tranquila para nossos clientes. Somos movidos pela paixão em servir e pela satisfação de ver nossos clientes começando um novo capítulo em suas vidas ou negócios com o pé direito.</p>
-                    <p>Desde o início, nossa trajetória é marcada pela busca constante por excelência, combinando a eficiência logística com um atendimento humano e personalizado.</p>
-                    
-                    <h3>Missão</h3>
-                    <p>Facilitar o processo de mudança e transporte para pessoas e empresas, oferecendo soluções logísticas eficientes, seguras e personalizadas, superando as expectativas dos nossos clientes através de um serviço de alta qualidade e um atendimento excepcional.</p>
-                    
-                    <h3>Visão</h3>
-                    <p>Ser a empresa de fretes e mudanças referência em Sorocaba e região, reconhecida pela confiabilidade, profissionalismo e pela capacidade de adaptar nossos serviços às necessidades de cada cliente, contribuindo positivamente para suas transições.</p>
+    <!-- Page Header -->
+    <section class="relative pt-24 pb-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 animate-on-scroll">
+                Conheça a Rápido Titan
+            </h1>
+            <p class="text-xl opacity-90 max-w-3xl mx-auto animate-on-scroll">
+                Compromisso, Agilidade e Segurança em Cada Mudança
+            </p>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-8 text-primary">
+                    Nossa História
+                </h2>
+                <p class="text-lg text-medium-gray mb-8 leading-relaxed">
+                    A <strong>Rápido Titan</strong> nasceu em Sorocaba com o objetivo de revolucionar o mercado de mudanças e fretes na região. Fundada por profissionais experientes do setor, nossa empresa se destacou rapidamente pela qualidade dos serviços e pelo atendimento personalizado.
+                </p>
+                <p class="text-lg text-medium-gray leading-relaxed">
+                    Com mais de <strong>2.000 mudanças realizadas</strong> e atendimento em <strong>18 estados</strong>, consolidamos nossa posição como uma das principais empresas de mudanças de Sorocaba. Nosso compromisso vai além do transporte: oferecemos tranquilidade e segurança em cada serviço.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossos Valores -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-primary">
+                    Nossos Valores
+                </h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                    Os pilares que sustentam nossa empresa e garantem a excelência em cada serviço prestado
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="value-card bg-white p-8 rounded-2xl border-l-4 border-secondary animate-on-scroll" data-delay="0.1">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center bg-blue-50 rounded-2xl">
+                        <i class="fas fa-handshake text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Compromisso</h3>
+                    <p class="text-medium-gray">
+                        Sua mudança com pontualidade, cuidado e respeito. A Rápido Titan entende que cada cliente tem sua história, por isso tratamos seus pertences com total responsabilidade. Com mais de 2.000 mudanças realizadas e avaliação 4.9 estrelas, garantimos um atendimento que valoriza o seu tempo e sua confiança.
+                    </p>
                 </div>
                 
-                <div class="about-values">
-                    <h2>Nossos Valores Fundamentais</h2>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <h3>Compromisso</h3>
-                            <p>Temos um pacto com a sua satisfação. Isso significa cumprir prazos rigorosamente (pontualidade), cuidar dos seus bens com o máximo zelo (responsabilidade) e manter uma comunicação transparente durante todo o processo. A confiança que você deposita em nós é nosso bem mais valioso.</p>
-                        </div>
+                <div class="value-card bg-white p-8 rounded-2xl border-l-4 border-secondary animate-on-scroll" data-delay="0.2">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center bg-blue-50 rounded-2xl">
+                        <i class="fas fa-bolt text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Agilidade</h3>
+                    <p class="text-medium-gray">
+                        Sabemos que uma mudança rápida e bem planejada faz toda a diferença. Nossa equipe especializada atua com agilidade, desde o agendamento até a entrega. Resolvemos tudo via WhatsApp, telefone ou e-mail, com resposta rápida e soluções sob medida para sua necessidade de transporte.
+                    </p>
+                </div>
+                
+                <div class="value-card bg-white p-8 rounded-2xl border-l-4 border-secondary animate-on-scroll" data-delay="0.3">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center bg-blue-50 rounded-2xl">
+                        <i class="fas fa-shield-alt text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Segurança</h3>
+                    <p class="text-medium-gray">
+                        A proteção dos seus bens é nossa prioridade. Usamos embalagens reforçadas, técnicas seguras e veículos adequados para garantir que tudo chegue ao destino intacto. Oferecemos mudança interestadual e transporte seguro para cargas de alto valor, com toda a confiança que sua família merece.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-8 text-primary">
+                            Por que somos diferentes?
+                        </h2>
                         
-                        <div class="value-card">
-                            <h3>Agilidade</h3>
-                            <p>Sabemos que tempo é crucial, especialmente em mudanças. Nossos processos são otimizados para garantir eficiência desde o primeiro contato até a entrega final. Buscamos soluções rápidas e inteligentes para os desafios logísticos, sem nunca comprometer a qualidade ou a segurança.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-lg mb-2">Frota Própria</h4>
+                                    <p class="text-medium-gray">Veículos próprios e bem cuidados, garantindo maior controle sobre prazos e qualidade do transporte.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-lg mb-2">Equipe Especializada</h4>
+                                    <p class="text-medium-gray">Profissionais treinados e experientes para manuseio adequado de todos os tipos de móveis e objetos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-lg mb-2">Pontualidade Garantida</h4>
+                                    <p class="text-medium-gray">Cumprimos rigorosamente os horários combinados, respeitando seu tempo e programação.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-lg mb-2">Atendimento Personalizado</h4>
+                                    <p class="text-medium-gray">Cada mudança é única e merece atenção especial. Adaptamos nossos serviços às suas necessidades.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-lg mb-2">Cobertura Nacional</h4>
+                                    <p class="text-medium-gray">Atendemos mudanças interestaduais para todo o Brasil com a mesma qualidade e cuidado.</p>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="value-card">
-                            <h3>Segurança</h3>
-                            <p>A proteção dos seus pertences e a segurança de nossa equipe e de terceiros são inegociáveis. Utilizamos equipamentos adequados, técnicas de manuseio e transporte seguras, e oferecemos opções de seguro para garantir sua total tranquilidade.</p>
+                    </div>
+                    
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="relative">
+                            <img src="images/hero-image.jpg" 
+                                 alt="Equipe Rápido Titan" 
+                                 class="w-full h-auto rounded-2xl shadow-lg">
+                            <div class="absolute -bottom-6 -right-6 bg-secondary text-white p-6 rounded-2xl shadow-lg">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold">4.9</div>
+                                    <div class="text-sm">⭐⭐⭐⭐⭐</div>
+                                    <div class="text-sm mt-1">Avaliação Google</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="about-differentiators">
-                    <h2>Nossos Diferenciais</h2>
-                    <ul>
-                        <li><i class="icon-check"></i> Equipe Qualificada: Profissionais treinados, experientes e dedicados.</li>
-                        <li><i class="icon-check"></i> Frota Adequada: Veículos revisados e apropriados para diferentes volumes.</li>
-                        <li><i class="icon-check"></i> Atendimento Personalizado: Ouvimos suas necessidades e adaptamos nossos serviços.</li>
-                        <li><i class="icon-check"></i> Experiência Local: Profundo conhecimento de Sorocaba e região.</li>
-                        <li><i class="icon-check"></i> Foco no Cliente: Sua tranquilidade e satisfação são nosso principal objetivo.</li>
-                    </ul>
+    <!-- Estatísticas -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
+                <div class="stat-item animate-on-scroll">
+                    <div class="text-4xl font-bold text-yellow-300 mb-2">2000+</div>
+                    <p class="text-lg">Mudanças Realizadas</p>
                 </div>
-
-                <div class="about-coverage">
-                    <h2>Área de Atuação</h2>
-                    <p>Com base em Sorocaba/SP, atendemos com orgulho toda a cidade e municípios vizinhos. Além disso, nossa expertise se estende a <strong>mudanças interestaduais</strong>, conectando Sorocaba a diversas regiões do Brasil com a mesma qualidade e segurança.</p>
-                    <!-- Pode adicionar um mapa aqui se desejar -->
+                <div class="stat-item animate-on-scroll" data-delay="0.1">
+                    <div class="text-4xl font-bold text-yellow-300 mb-2">18</div>
+                    <p class="text-lg">Estados Atendidos</p>
                 </div>
-
-                <div class="about-cta">
-                    <p>Confie sua próxima mudança ou frete a uma empresa que realmente se importa.</p>
-                    <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A%20Poderia%20me%20ajudar%20com%20uma%20mudan%C3%A7a%2Ffrete%3F%20%0A%0A%2A%20%20%20%2A%2AOrigem%3A%2A%2A%20%5BSeu%20endere%C3%A7o%20de%20partida%5D%0A%2A%20%20%20%2A%2ADestino%3A%2A%2A%20%5BSeu%20endere%C3%A7o%20de%20chegada%5D%0A%2A%20%20%20%2A%2AItens%20Principais%3A%2A%2A%20%5BEx%3A%20Geladeira%2C%20sof%C3%A1%2C%20cama%2C%20caixas...%5D%0A%0AAguardo%20seu%20contato%21%20Obrigado%21" target="_blank" class="btn-primary">Solicitar Orçamento via WhatsApp</a>
-                    <a href="contato.html" class="btn-secondary">Fale Conosco</a>
+                <div class="stat-item animate-on-scroll" data-delay="0.2">
+                    <div class="text-4xl font-bold text-yellow-300 mb-2">4.9</div>
+                    <p class="text-lg">Estrelas no Google</p>
+                </div>
+                <div class="stat-item animate-on-scroll" data-delay="0.3">
+                    <div class="text-4xl font-bold text-yellow-300 mb-2">100%</div>
+                    <p class="text-lg">Clientes Satisfeitos</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html">Rapido Titan</a>
-                    <p>Seu patrimônio, nosso compromisso.</p>
-                    <img src="images/footer_logo.png" alt="Logo Rapido Titan Rodapé" class="footer-logo-img">
+    <!-- CTA Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="animate-on-scroll">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-primary">
+                    Pronto para confiar sua mudança à Rápido Titan?
+                </h2>
+                <p class="text-xl mb-8 text-medium-gray max-w-3xl mx-auto">
+                    Entre em contato conosco e descubra por que somos a escolha de milhares de famílias e empresas em Sorocaba e região.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" 
+                       target="_blank" 
+                       class="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105">
+                        Solicitar Orçamento via WhatsApp
+                    </a>
+                    <a href="contato.html" 
+                       class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105">
+                        Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-light-gray py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-12 w-auto mr-3">
+                        <span class="font-heading text-2xl font-bold text-white">Rápido Titan</span>
+                    </div>
+                    <p class="text-gray-400">Seu patrimônio, nosso compromisso.</p>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="servicos.html">Serviços</a></li>
-                        <li><a href="sobre.html">Sobre Nós</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-
+                <div>
+                    <h4 class="text-white font-semibold mb-4 font-heading">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-secondary transition-colors">Início</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-secondary transition-colors">Serviços</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-secondary transition-colors">Sobre Nós</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-secondary transition-colors">Blog</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-secondary transition-colors">Contato</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><i class="icon-phone"></i> <a href="tel:+5515981194338">(15) 98119-4338</a></li>
-                        <li><i class="icon-whatsapp"></i> <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" target="_blank">(15) 98119-4338</a></li>
-                        <li><i class="icon-email"></i> contato@rapidotitan.com.br</li>
-                        <li><i class="icon-location"></i> Sorocaba/SP</li>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 font-heading">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">📱</span>
+                            <a href="tel:+5515981194338" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">💬</span>
+                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">📧</span>
+                            <span class="text-gray-400">contato@rapidotitan.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-secondary mr-2">📍</span>
+                            <span class="text-gray-400">Sorocaba/SP</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <div class="footer-social">
-                    <h4>Redes Sociais</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" class="icon-facebook"></a>
-                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" class="icon-instagram"></a>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 font-heading">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📘</a>
+                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📷</a>
                     </div>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 Rapido Titan. Todos os direitos reservados.</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
+                <p class="mt-2"><a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors"><i class="fas fa-code"></i> Ver Código</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts JS -->
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+    <script>
+        // GSAP Animations Setup
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate on Scroll Elements
+        gsap.utils.toArray(".animate-on-scroll").forEach((element, index) => {
+            const delay = element.getAttribute("data-delay") || 0;
+            
+            gsap.fromTo(element, {
+                opacity: 0,
+                y: 50
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: delay,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%"
+                }
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Hide mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
