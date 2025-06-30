@@ -45,6 +45,12 @@ body {
     line-height: 1.6;
     color: var(--dark-gray);
     background-color: var(--white-color);
+ zoom: 0.8; 
+}
+
+header {
+    /* Ajusta o zoom do header para compensar o do body (1 / 0.8 = 1.25) */
+    zoom: 1.25; 
 }
 
 h1, h2, h3, h4, h5, h6 {
