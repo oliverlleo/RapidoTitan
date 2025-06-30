@@ -45,11 +45,11 @@ body {
     line-height: 1.6;
     color: var(--dark-gray);
     background-color: var(--white-color);
-    zoom: 0.2;
+    zoom: 0.9;
 }
 
 header {
-    zoom: 1.6667; /* Counteract the body zoom (1 / 0.6) */
+    zoom: 1.25; 
 }
 
 h1, h2, h3, h4, h5, h6 {
