@@ -45,19 +45,11 @@ body {
     line-height: 1.6;
     color: var(--dark-gray);
     background-color: var(--white-color);
-    transform: scale(0.6);
-    transform-origin: top left;
-    width: 166.67%; /* 100 / 0.6 */
-    height: 166.67%; /* 100 / 0.6 */
+    zoom: 0.6;
 }
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transform: scale(1.6667); /* 1 / 0.6 */
-    transform-origin: top left;
-    width: 60%; /* 100 * 0.6 */
+    zoom: 1.6667; /* Counteract the body zoom (1 / 0.6) */
 }
 
 h1, h2, h3, h4, h5, h6 {
