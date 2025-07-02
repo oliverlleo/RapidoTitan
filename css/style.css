@@ -848,3 +848,16 @@ footer {
         margin-bottom: 1rem;
     }
 }
+/* Adiciona padding para a visualização web (desktop) */
+.mobile-button-container {
+    padding-top: 2rem;    /* 32px de padding superior */
+    padding-bottom: 2rem; /* 32px de padding inferior */
+}
+
+/* Remove o padding na visualização móvel */
+@media (max-width: 768px) {
+    .mobile-button-container {
+        padding-top: 0;
+        padding-bottom: 0 !important;
+    }
+}
