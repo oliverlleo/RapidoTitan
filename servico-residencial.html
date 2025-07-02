@@ -7,13 +7,17 @@
     <meta name="description" content="Detalhes sobre o serviço de mudança residencial da Rapido Titan em Sorocaba e região.">
     <!-- Favicon -->
     <link rel="icon" href="/images/favicon.ico">
-    <!-- Animate.css CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- GSAP para animações avançadas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS Principal -->
     <link rel="stylesheet" href="css/style.css">
     <!-- CSS Responsivo -->
     <link rel="stylesheet" href="css/responsive.css">
-<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
+<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
 <body>
     <header>
         <div class="container">
@@ -42,39 +46,67 @@
         <!-- Conteúdo do Serviço -->
         <section class="service-page-detail">
             <div class="container">
-                <div class="service-content-wrapper">
-                    <div class="service-image-detail">
+                <article class="blog-post">
+                    <div class="post-image-full">
                         <img src="images/service-residencial.jpg" alt="Mudança Residencial Rapido Titan">
                     </div>
-                    <div class="service-text-detail">
+                    <div class="post-content">
+                        <h2>Mudança Residencial em Sorocaba e Região</h2>
                         <p>Mudar de casa marca o início de um novo capítulo, e a Rapido Titan está aqui para garantir que essa transição seja suave, organizada e livre de estresse. Nosso serviço de mudança residencial em Sorocaba e região é desenhado para cuidar de cada detalhe, desde o planejamento inicial até a entrega dos seus bens no novo lar.</p>
-                        <p>Entendemos o valor sentimental e financeiro dos seus pertences e aplicamos nosso <strong>compromisso</strong>, <strong>agilidade</strong> e <strong>segurança</strong> em cada etapa.</p>
-                        <h3>Como Funciona:</h3>
-                        <ol>
-                            <li><strong>Consulta e Orçamento:</strong> Entendemos suas necessidades e fornecemos um orçamento detalhado.</li>
-                            <li><strong>Planejamento:</strong> Definimos juntos a melhor data e logística.</li>
-                            <li><strong>Embalagem (Opcional):</strong> Nossa equipe especializada embala seus pertences com materiais adequados.</li>
-                            <li><strong>Desmontagem e Montagem (Opcional):</strong> Cuidamos dos seus móveis na origem e destino.</li>
-                            <li><strong>Transporte:</strong> Utilizamos veículos adequados e equipados para um transporte seguro.</li>
-                            <li><strong>Entrega e Descarregamento:</strong> Posicionamos seus bens conforme suas indicações.</li>
-                        </ol>
-                        <h3>Benefícios:</h3>
+                        
+                        <p>Entendemos o valor sentimental e financeiro dos seus pertences e aplicamos nosso <strong>compromisso</strong>, <strong>agilidade</strong> e <strong>segurança</strong> em cada etapa do processo.</p>
+                        
+                        <h3>Como Funciona Nossa Mudança Residencial:</h3>
+                        <div class="service-feature-grid">
+                            <div class="service-feature">
+                                <h4><i class="fas fa-clipboard-check text-secondary"></i> Consulta e Orçamento</h4>
+                                <p>Entendemos suas necessidades específicas e fornecemos um orçamento detalhado e transparente.</p>
+                            </div>
+                            <div class="service-feature">
+                                <h4><i class="fas fa-calendar-alt text-secondary"></i> Planejamento</h4>
+                                <p>Definimos juntos a melhor data e desenvolvemos uma logística personalizada para sua mudança.</p>
+                            </div>
+                            <div class="service-feature">
+                                <h4><i class="fas fa-box text-secondary"></i> Embalagem Profissional</h4>
+                                <p>Nossa equipe especializada embala seus pertences com materiais de alta qualidade para máxima proteção.</p>
+                            </div>
+                            <div class="service-feature">
+                                <h4><i class="fas fa-tools text-secondary"></i> Desmontagem e Montagem</h4>
+                                <p>Cuidamos com precisão dos seus móveis na origem e realizamos a montagem no destino.</p>
+                            </div>
+                            <div class="service-feature">
+                                <h4><i class="fas fa-truck text-secondary"></i> Transporte Seguro</h4>
+                                <p>Utilizamos veículos adequados e equipados com tecnologia para garantir um transporte sem danos.</p>
+                            </div>
+                            <div class="service-feature">
+                                <h4><i class="fas fa-home text-secondary"></i> Organização Final</h4>
+                                <p>Posicionamos seus bens conforme suas indicações para você começar bem no novo lar.</p>
+                            </div>
+                        </div>
+                        
+                        <h3>Benefícios da Mudança Residencial com a Rapido Titan:</h3>
                         <ul>
-                            <li>Tranquilidade e organização.</li>
-                            <li>Segurança garantida (com seguro opcional).</li>
-                            <li>Economia de tempo e esforço.</li>
-                            <li>Flexibilidade para adaptar o serviço.</li>
+                            <li><i class="fas fa-check-circle text-secondary"></i> <strong>Tranquilidade e organização</strong> durante todo o processo de mudança</li>
+                            <li><i class="fas fa-check-circle text-secondary"></i> <strong>Segurança garantida</strong> para seus pertences (com seguro opcional)</li>
+                            <li><i class="fas fa-check-circle text-secondary"></i> <strong>Economia de tempo e esforço</strong>, permitindo que você foque em outras prioridades</li>
+                            <li><i class="fas fa-check-circle text-secondary"></i> <strong>Equipe treinada e experiente</strong> para lidar com itens de todos os tipos</li>
+                            <li><i class="fas fa-check-circle text-secondary"></i> <strong>Flexibilidade</strong> para adaptar o serviço às suas necessidades específicas</li>
+                            <li><i class="fas fa-check-circle text-secondary"></i> <strong>Suporte completo</strong> desde o planejamento até a finalização da mudança</li>
                         </ul>
-                        <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Mudan%C3%A7a%20Residencial.%20%F0%9F%98%8A%20%0A%0A%2A%20%20%20%2A%2AOrigem%3A%2A%2A%20%5BSeu%20endere%C3%A7o%20de%20partida%5D%0A%2A%20%20%20%2A%2ADestino%3A%2A%2A%20%5BSeu%20endere%C3%A7o%20de%20chegada%5D%0A%2A%20%20%20%2A%2AItens%20Principais%3A%2A%2A%20%5BEx%3A%20Geladeira%2C%20sof%C3%A1%2C%20cama%2C%20caixas...%5D%0A%0AAguardo%20seu%20contato%21%20Obrigado%21" target="_blank" class="btn-primary">Solicitar Orçamento via WhatsApp</a>
-                        <a href="servicos.html" class="btn-secondary btn-voltar">Voltar</a>
+                        
+                        <p style="text-align: center; margin-top: 2.5rem;">
+                            <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20Mudan%C3%A7a%20Residencial.%20%F0%9F%98%8A%20%0A%0A%2A%20%20%20%2A%2AOrigem%3A%2A%2A%20%5BSeu%20endere%C3%A7o%20de%20partida%5D%0A%2A%20%20%20%2A%2ADestino%3A%2A%2A%20%5BSeu%20endere%C3%A7o%20de%20chegada%5D%0A%2A%20%20%20%2A%2AItens%20Principais%3A%2A%2A%20%5BEx%3A%20Geladeira%2C%20sof%C3%A1%2C%20cama%2C%20caixas...%5D%0A%0AAguardo%20seu%20contato%21%20Obrigado%21" target="_blank" class="btn-primary">Solicitar Orçamento via WhatsApp</a>
+                        </p>
                     </div>
-                </div>
+                    <div class="back-button-container">
+                        <a href="servicos.html" class="btn-secondary">Voltar para Serviços</a>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
 
     <footer>
-        <!-- Conteúdo do rodapé igual ao das outras páginas -->
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -97,7 +129,7 @@
                     <ul>
                         <li><i class="icon-phone"></i> <a href="tel:+5515981194338">(15) 98119-4338</a></li>
                         <li><i class="icon-whatsapp"></i> <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" target="_blank">(15) 98119-4338</a></li>
-                        <li><i class="icon-email"></i> contato@rapidotitan.com.br</li>
+                        <li><i class="icon-email"></i> taniorobertosilva@gmail.com</li>
                         <li><i class="icon-location"></i> Sorocaba/SP</li>
                     </ul>
                 </div>
@@ -121,4 +153,3 @@
     <script src="js/animations.js"></script>
 </body>
 </html>
-

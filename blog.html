@@ -24,6 +24,9 @@
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico">
     
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
     <style>
         :root {
             --primary-color: #00579B;
@@ -83,7 +86,7 @@
             }
         }
     </script>
-<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
+<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
 <body class="text-dark-gray antialiased">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white shadow-lg">
@@ -167,9 +170,9 @@
                             <span class="text-sm text-medium-gray">
                                 <i class="fas fa-calendar mr-2"></i>5 min de leitura
                             </span>
-                            <a href="blog-checklist.html" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
+                            <button onclick="openBlogModal('checklist')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
                                 Ler Mais
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -197,9 +200,9 @@
                             <span class="text-sm text-medium-gray">
                                 <i class="fas fa-calendar mr-2"></i>7 min de leitura
                             </span>
-                            <a href="blog-commercial-move.html" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
+                            <button onclick="openBlogModal('commercial')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
                                 Ler Mais
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -227,9 +230,9 @@
                             <span class="text-sm text-medium-gray">
                                 <i class="fas fa-calendar mr-2"></i>6 min de leitura
                             </span>
-                            <a href="blog-packing.html" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
+                            <button onclick="openBlogModal('packing')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
                                 Ler Mais
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -257,9 +260,9 @@
                             <span class="text-sm text-medium-gray">
                                 <i class="fas fa-calendar mr-2"></i>8 min de leitura
                             </span>
-                            <a href="blog-stress.html" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
+                            <button onclick="openBlogModal('stress')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
                                 Ler Mais
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -287,31 +290,43 @@
                             <span class="text-sm text-medium-gray">
                                 <i class="fas fa-calendar mr-2"></i>9 min de leitura
                             </span>
-                            <a href="blog-special-items.html" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
+                            <button onclick="openBlogModal('special')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
                                 Ler Mais
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </article>
 
                 <!-- Download Checklist -->
-                <article class="blog-card bg-gradient-to-br from-primary to-blue-600 text-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.5">
-                    <div class="p-8 text-center">
-                        <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white rounded-full">
-                            <i class="fas fa-download text-3xl text-primary"></i>
+                <article class="blog-card bg-gradient-to-br from-primary to-blue-600 rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.5">
+                    <div class="h-48 bg-gradient-to-br from-primary to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-download text-6xl text-white opacity-50"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold mb-4">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white text-primary px-3 py-1 rounded-full text-sm font-semibold">
+                                Grátis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
                             Download Grátis
                         </h3>
-                        <p class="mb-6 opacity-90">
+                        <p class="text-medium-gray mb-4 text-sm">
                             Baixe nosso checklist completo de mudança residencial em PDF e tenha tudo organizado.
                         </p>
-                        <a href="checklist_mudanca_residencial_rapido_titan.pdf" 
-                           download 
-                           class="bg-secondary hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 hover:scale-105">
-                            <i class="fas fa-download mr-2"></i>
-                            Baixar PDF
-                        </a>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-medium-gray">
+                                <i class="fas fa-file-pdf mr-2"></i>Checklist PDF
+                            </span>
+                            <a href="checklist_mudanca_residencial_rapido_titan.pdf" 
+                               download 
+                               class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
+                                <i class="fas fa-download mr-2"></i>
+                                Baixar PDF
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -339,65 +354,163 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-gray text-light-gray py-12">
+    <footer class="bg-gradient-to-b from-dark-gray to-black text-light-gray py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-12 w-auto mr-3">
-                        <span class="font-heading text-2xl font-bold text-white">Rápido Titan</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Logo e Descrição -->
+                <div class="md:col-span-1 lg:col-span-1">
+                    <div class="mb-6">
+                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-16 w-auto mb-4">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Rápido Titan</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Seu patrimônio, nosso compromisso. Mudanças seguras e eficientes em Sorocaba e região.</p>
                     </div>
-                    <p class="text-gray-400">Seu patrimônio, nosso compromisso.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4 font-heading">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-secondary transition-colors">Início</a></li>
-                        <li><a href="servicos.html" class="text-gray-400 hover:text-secondary transition-colors">Serviços</a></li>
-                        <li><a href="sobre.html" class="text-gray-400 hover:text-secondary transition-colors">Sobre Nós</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-secondary transition-colors">Blog</a></li>
-                        <li><a href="contato.html" class="text-gray-400 hover:text-secondary transition-colors">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4 font-heading">Contato</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">📱</span>
-                            <a href="tel:+5515981194338" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">💬</span>
-                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">📧</span>
-                            <span class="text-gray-400">contato@rapidotitan.com.br</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">📍</span>
-                            <span class="text-gray-400">Sorocaba/SP</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4 font-heading">Redes Sociais</h4>
+                    
+                    <!-- Redes Sociais -->
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📘</a>
-                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📷</a>
+                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" 
+                           class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" 
+                           class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
                     </div>
+                </div>
+                
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
+                        Links Rápidos
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-home mr-2 text-secondary"></i>Início</a></li>
+                        <li><a href="servicos.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-truck mr-2 text-secondary"></i>Serviços</a></li>
+                        <li><a href="sobre.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-info-circle mr-2 text-secondary"></i>Sobre Nós</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-blog mr-2 text-secondary"></i>Blog</a></li>
+                        <li><a href="contato.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2 text-secondary"></i>Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contato -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
+                        Contato
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-3 w-4"></i>
+                            <a href="tel:+5515981194338" class="text-gray-300 hover:text-secondary transition-colors duration-300">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-secondary mr-3 w-4"></i>
+                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-300 hover:text-secondary transition-colors duration-300">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">taniorobertosilva@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Sorocaba/SP</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Horário e Certificados -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
+                        Atendimento
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Seg-Sex: 8h às 18h</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-calendar text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Sáb: 8h às 12h</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Empresa Licenciada</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-certificate text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Seguro Total</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
-                <p class="mt-2"><a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors"><i class="fas fa-code"></i> Ver Código</a></p>
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
+                    <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                        <a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors duration-300 text-sm flex items-center">
+                            <i class="fas fa-code mr-2"></i>Ver Código
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <span class="text-gray-400 text-sm">Desenvolvido com ❤️</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
+        
+        <!-- Modal Content -->
+        <div class="fixed inset-x-4 top-20 bottom-4 md:inset-x-8 md:top-24 md:bottom-8 bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+            <!-- Modal Header -->
+            <div class="bg-primary text-white p-6 flex items-center justify-between">
+                <h2 id="modalTitle" class="font-heading text-2xl font-bold"></h2>
+                <button onclick="closeBlogModal()" class="text-white hover:text-gray-300 transition-colors duration-300">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="flex-1 overflow-y-auto p-6">
+                <div id="modalContent" class="prose prose-lg max-w-none">
+                    <!-- Content will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="bg-light-gray p-6 border-t">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-sm text-medium-gray">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span id="modalReadTime"></span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20mudan%C3%A7as%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." 
+                           target="_blank" 
+                           class="bg-secondary hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-300">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            Solicitar Orçamento
+                        </a>
+                        <button onclick="closeBlogModal()" class="bg-gray-300 hover:bg-gray-400 text-dark-gray px-6 py-2 rounded-lg font-semibold transition-colors duration-300">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // GSAP Animations Setup
@@ -436,6 +549,575 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // Blog Modal Data
+        const blogData = {
+            checklist: {
+                title: "Checklist Completo para Mudança Residencial",
+                readTime: "5 min de leitura",
+                content: `
+                    <h3 class="text-primary font-heading text-xl font-bold mb-4">Organize sua mudança com eficiência</h3>
+                    
+                    <p class="mb-6">Uma mudança bem planejada é sinônimo de tranquilidade. Este checklist completo irá guiá-lo através de todas as etapas necessárias para uma mudança residencial organizada e sem estresse.</p>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">2 Meses Antes da Mudança</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Defina a data da mudança</li>
+                        <li>Pesquise e solicite orçamentos de empresas de mudança</li>
+                        <li>Compare preços e serviços oferecidos</li>
+                        <li>Faça reserva da empresa escolhida</li>
+                        <li>Comece a usar produtos perecíveis</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">1 Mês Antes da Mudança</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Confirme a data com a empresa de mudança</li>
+                        <li>Solicite mudança de endereço nos Correios</li>
+                        <li>Comunique bancos e empresas sobre a mudança</li>
+                        <li>Atualize seu endereço em documentos</li>
+                        <li>Transfira ou cancele serviços (internet, TV, telefone)</li>
+                        <li>Pesquise escolas na nova região (se necessário)</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">2 Semanas Antes</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Comece a embalar itens não essenciais</li>
+                        <li>Faça limpeza e doação de objetos desnecessários</li>
+                        <li>Confirme o agendamento de instalação de serviços na nova casa</li>
+                        <li>Organize documentos importantes em uma pasta separada</li>
+                        <li>Prepare uma mala com itens essenciais para os primeiros dias</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">1 Semana Antes</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Finalize o empacotamento</li>
+                        <li>Etiquete todas as caixas com conteúdo e destino</li>
+                        <li>Confirme horário e detalhes com a empresa de mudança</li>
+                        <li>Prepare kit de limpeza para a casa nova</li>
+                        <li>Organize dinheiro para pagamento da mudança</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">No Dia da Mudança</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Esteja presente desde o início</li>
+                        <li>Acompanhe o inventário dos seus bens</li>
+                        <li>Mantenha documentos e objetos de valor com você</li>
+                        <li>Tire fotos do estado dos móveis antes do transporte</li>
+                        <li>Confira se nada foi esquecido na casa antiga</li>
+                        <li>Faça vistoria na entrega</li>
+                    </ul>
+                    
+                    <div class="bg-light-gray p-4 rounded-lg mt-6">
+                        <h5 class="text-primary font-heading font-semibold mb-2">💡 Dica Especial</h5>
+                        <p>Mantenha uma caixa marcada como "PRIMEIRA NECESSIDADE" com itens essenciais como produtos de higiene, medicamentos, roupas para alguns dias, utensílios básicos de cozinha e material de limpeza.</p>
+                    </div>
+                `
+            },
+            commercial: {
+                title: "Como Fazer Mudança Comercial Sem Parar o Negócio",
+                readTime: "7 min de leitura",
+                content: `
+                    <h3 class="text-primary font-heading text-xl font-bold mb-4">Mantenha sua empresa funcionando durante a mudança</h3>
+                    
+                    <p class="mb-6">Uma mudança comercial bem executada pode ser realizada com mínimo impacto nas operações do seu negócio. O segredo está no planejamento detalhado e na execução em etapas.</p>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Planejamento Estratégico</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Analise o momento ideal para a mudança (feriados, baixa temporada)</li>
+                        <li>Divida a mudança em fases para manter operações críticas</li>
+                        <li>Identifique equipamentos e setores essenciais</li>
+                        <li>Crie um cronograma detalhado com responsabilidades</li>
+                        <li>Comunique o plano para toda a equipe com antecedência</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Preparação da Infraestrutura</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Instale internet e telefonia no novo local antes da mudança</li>
+                        <li>Configure servidores e sistemas críticos</li>
+                        <li>Teste toda a infraestrutura de TI</li>
+                        <li>Prepare backup de dados importantes</li>
+                        <li>Organize fornecimento de energia elétrica adequado</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Execução em Fases</h4>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h5 class="text-primary font-heading font-semibold mb-2">Fase 1: Setores Não-Críticos</h5>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Almoxarifado e estoque</li>
+                            <li>Salas de reunião</li>
+                            <li>Áreas administrativas secundárias</li>
+                            <li>Arquivo morto</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-orange-50 p-4 rounded-lg mb-4">
+                        <h5 class="text-primary font-heading font-semibold mb-2">Fase 2: Produção/Operação</h5>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Equipamentos de produção</li>
+                            <li>Maquinário especializado</li>
+                            <li>Linhas de montagem</li>
+                            <li>Laboratórios</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg mb-6">
+                        <h5 class="text-primary font-heading font-semibold mb-2">Fase 3: Sistemas Críticos</h5>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Servidores principais</li>
+                            <li>Central telefônica</li>
+                            <li>Sistemas de segurança</li>
+                            <li>Equipamentos de TI essenciais</li>
+                        </ul>
+                    </div>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Gestão da Equipe</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Designe responsáveis para cada fase da mudança</li>
+                        <li>Mantenha equipes de plantão durante a transição</li>
+                        <li>Organize trabalho remoto quando possível</li>
+                        <li>Comunique-se constantemente com clientes sobre a mudança</li>
+                        <li>Tenha plano de contingência para emergências</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Comunicação com Clientes</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Avise com 30 dias de antecedência sobre a mudança</li>
+                        <li>Informe sobre possíveis interrupções temporárias</li>
+                        <li>Forneça canais alternativos de contato</li>
+                        <li>Mantenha atendimento via WhatsApp e e-mail</li>
+                        <li>Envie comunicado oficial com novo endereço</li>
+                    </ul>
+                    
+                    <div class="bg-light-gray p-4 rounded-lg mt-6">
+                        <h5 class="text-primary font-heading font-semibold mb-2">⚡ Dica de Ouro</h5>
+                        <p>Programe a mudança para um final de semana ou feriado prolongado. Isso permite mais tempo para instalação e testes antes da retomada normal das atividades.</p>
+                    </div>
+                `
+            },
+            packing: {
+                title: "Técnicas Profissionais de Embalagem",
+                readTime: "6 min de leitura",
+                content: `
+                    <h3 class="text-primary font-heading text-xl font-bold mb-4">Proteja seus objetos como um profissional</h3>
+                    
+                    <p class="mb-6">A embalagem adequada é fundamental para garantir que seus pertences cheguem intactos ao destino. Aprenda as técnicas utilizadas por profissionais de mudança.</p>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Materiais Essenciais</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li><strong>Caixas de papelão:</strong> Variados tamanhos, reforçadas</li>
+                        <li><strong>Plástico bolha:</strong> Para itens frágeis</li>
+                        <li><strong>Papel jornal:</strong> Preenchimento e proteção</li>
+                        <li><strong>Fita adesiva:</strong> Transparente e resistente</li>
+                        <li><strong>Etiquetas:</strong> Para identificação</li>
+                        <li><strong>Marcadores:</strong> Para descrição do conteúdo</li>
+                        <li><strong>Sacos plásticos:</strong> Para peças pequenas</li>
+                    </ul>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Técnicas por Tipo de Objeto</h4>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h5 class="text-red-600 font-heading font-semibold mb-2">🔴 Itens Frágeis (Louças, Vidros)</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Embrulhe cada peça individualmente com plástico bolha</li>
+                                <li>Use papel amassado para preencher espaços vazios</li>
+                                <li>Coloque pratos na vertical, nunca empilhados</li>
+                                <li>Marque a caixa com "FRÁGIL" em todas as laterais</li>
+                                <li>Use caixas pequenas para não sobrecarregar</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="text-blue-600 font-heading font-semibold mb-2">💻 Eletrônicos</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Tire fotos das conexões antes de desmontar</li>
+                                <li>Use embalagem original quando disponível</li>
+                                <li>Remova pilhas e baterias</li>
+                                <li>Embale cabos separadamente e identifique</li>
+                                <li>Proteja telas com plástico bolha</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h5 class="text-green-600 font-heading font-semibold mb-2">👔 Roupas</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Use sacos a vácuo para economizar espaço</li>
+                                <li>Mantenha roupas delicadas em cabides</li>
+                                <li>Embale sapatos em sacos plásticos</li>
+                                <li>Coloque papel dentro dos calçados para manter formato</li>
+                                <li>Separe roupas por estação</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h5 class="text-yellow-600 font-heading font-semibold mb-2">📚 Livros e Documentos</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Use caixas pequenas para livros (máximo 15kg)</li>
+                                <li>Coloque livros na vertical como em estante</li>
+                                <li>Proteja documentos importantes em pastas plásticas</li>
+                                <li>Separe livros por tamanho e peso</li>
+                                <li>Preencha espaços com papel para evitar movimento</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3 mt-6">Sistema de Etiquetagem</h4>
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Cômodo de destino:</strong> "COZINHA", "QUARTO 1", "SALA"</li>
+                            <li><strong>Conteúdo:</strong> Descrição breve do que contém</li>
+                            <li><strong>Prioridade:</strong> "PRIMEIRA NECESSIDADE", "FRÁGIL", "PESADO"</li>
+                            <li><strong>Instruções:</strong> "ESTE LADO PARA CIMA", "NÃO EMPILHAR"</li>
+                        </ul>
+                    </div>
+                    
+                    <h4 class="text-primary font-heading text-lg font-semibold mb-3">Dicas de Peso e Volume</h4>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Caixas pequenas: máximo 15kg (livros, enlatados)</li>
+                        <li>Caixas médias: máximo 20kg (roupas, objetos médios)</li>
+                        <li>Caixas grandes: máximo 15kg (travesseiros, roupas leves)</li>
+                        <li>Teste o peso antes de fechar a caixa</li>
+                        <li>Distribua peso uniformemente</li>
+                    </ul>
+                    
+                    <div class="bg-light-gray p-4 rounded-lg mt-6">
+                        <h5 class="text-primary font-heading font-semibold mb-2">🎯 Dica Profissional</h5>
+                        <p>Prepare uma "caixa de sobrevivência" com itens essenciais para os primeiros dias: produtos de higiene, medicamentos, muda de roupa, carregadores, utensílios básicos de cozinha e material de limpeza.</p>
+                    </div>
+                `
+            },
+            stress: {
+                title: "10 Dicas para Reduzir o Estresse da Mudança",
+                readTime: "8 min de leitura",
+                content: `
+                    <h3 class="text-primary font-heading text-xl font-bold mb-4">Transforme sua mudança numa experiência tranquila</h3>
+                    
+                    <p class="mb-6">Mudança não precisa ser sinônimo de estresse. Com as estratégias certas, você pode tornar esse processo muito mais tranquilo e até prazeroso. Aqui estão 10 dicas comprovadas para reduzir a ansiedade.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-primary pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">1. Comece o Planejamento com Antecedência</h4>
+                            <p class="text-medium-gray">Inicie os preparativos pelo menos 8 semanas antes. Isso permite distribuir as tarefas ao longo do tempo, evitando acúmulo de atividades nos últimos dias.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-secondary pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">2. Faça Listas Detalhadas</h4>
+                            <p class="text-medium-gray">Crie checklists para cada etapa: documentos a atualizar, serviços a transferir, itens a embalar. Riscar itens concluídos dá sensação de progresso e controle.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">3. Delegue e Peça Ajuda</h4>
+                            <p class="text-medium-gray">Não tente fazer tudo sozinho. Envolva família e amigos, contrate profissionais quando necessário. Aceitar ajuda não é sinal de fraqueza, mas de inteligência.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">4. Organize uma "Operação Limpeza"</h4>
+                            <p class="text-medium-gray">Use a mudança como oportunidade para doar, vender ou descartar itens desnecessários. Menos objetos = menos trabalho = menos estresse.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">5. Prepare um Kit de Sobrevivência</h4>
+                            <p class="text-medium-gray">Separe uma mala com itens essenciais para os primeiros dias: roupas, medicamentos, produtos de higiene, documentos importantes e itens de conforto.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">6. Mantenha Rotinas Importantes</h4>
+                            <p class="text-medium-gray">Preserve atividades que lhe dão prazer e tranquilidade: exercícios, momentos de lazer, refeições regulares. Não sacrifique seu bem-estar pela mudança.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">7. Comunique-se Claramente</h4>
+                            <p class="text-medium-gray">Mantenha diálogo aberto com a empresa de mudança, família e amigos envolvidos. Comunicação clara evita mal-entendidos e retrabalho.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-pink-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">8. Tenha um Plano B</h4>
+                            <p class="text-medium-gray">Prepare alternativas para situações imprevistas: mudança na data, problemas climáticos, atrasos. Ter opções reduz ansiedade quando surgem contratempos.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-indigo-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">9. Pratique Técnicas de Relaxamento</h4>
+                            <p class="text-medium-gray">Respiração profunda, meditação breve ou alongamentos simples podem ajudar nos momentos de maior tensão. Reserve alguns minutos diários para relaxar.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-teal-500 pl-4">
+                            <h4 class="text-primary font-heading text-lg font-semibold mb-2">10. Foque no Lado Positivo</h4>
+                            <p class="text-medium-gray">Lembre-se dos motivos que levaram à mudança: novo emprego, casa melhor, proximidade à família. Visualize os benefícios que virão.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light-gray p-6 rounded-lg mt-8">
+                        <h4 class="text-primary font-heading text-lg font-semibold mb-3">Técnica SOS para Momentos Críticos</h4>
+                        <p class="mb-3">Quando sentir que o estresse está tomando conta:</p>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li><strong>Pare:</strong> Interrompa o que está fazendo</li>
+                            <li><strong>Respire:</strong> 3 respirações profundas</li>
+                            <li><strong>Avalie:</strong> É realmente urgente ou pode esperar?</li>
+                            <li><strong>Priorize:</strong> Foque no que é mais importante</li>
+                            <li><strong>Continue:</strong> Retome com calma</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-primary text-white p-4 rounded-lg mt-6">
+                        <h5 class="font-heading font-semibold mb-2">💪 Lembre-se</h5>
+                        <p>Mudança é uma das experiências mais estressantes da vida, mas também pode ser uma das mais renovadoras. Seja paciente consigo mesmo e lembre-se: isso também passará!</p>
+                    </div>
+                `
+            },
+            special: {
+                title: "Cuidados com Itens Especiais: Pianos, Obras de Arte e Mais",
+                readTime: "9 min de leitura",
+                content: `
+                    <h3 class="text-primary font-heading text-xl font-bold mb-4">Transporte seguro para seus objetos mais preciosos</h3>
+                    
+                    <p class="mb-6">Alguns objetos requerem cuidados especiais durante uma mudança devido ao seu valor, fragilidade ou características únicas. Este guia aborda as melhores práticas para transportar itens que demandam atenção especial.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-lg">
+                            <h4 class="text-purple-700 font-heading text-xl font-bold mb-4 flex items-center">
+                                🎹 Pianos e Instrumentos Musicais
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Pianos Verticais:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Feche e trave a tampa antes do transporte</li>
+                                        <li>Proteja o pedal com espuma e plástico bolha</li>
+                                        <li>Use cintas especiais para fixação</li>
+                                        <li>Transporte sempre na posição vertical</li>
+                                        <li>Evite mudanças bruscas de temperatura</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-semibold mb-2">Pianos de Cauda:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Desmonte as pernas (apenas profissionais)</li>
+                                        <li>Remova a lira e pedais separadamente</li>
+                                        <li>Proteja as cordas com papel especial</li>
+                                        <li>Use carrinho especial para transporte</li>
+                                        <li>Considere seguro específico para o transporte</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-purple-200 p-3 rounded">
+                                    <p class="text-sm"><strong>⚠️ Importante:</strong> Pianos devem ser afinados após mudança, pois o transporte afeta a tensão das cordas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg">
+                            <h4 class="text-blue-700 font-heading text-xl font-bold mb-4 flex items-center">
+                                🖼️ Obras de Arte e Quadros
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Pinturas em Tela:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Nunca toque na superfície pintada</li>
+                                        <li>Use papel glassine para proteger a superfície</li>
+                                        <li>Embale em papelão rígido ou caixas especiais</li>
+                                        <li>Transporte sempre na vertical</li>
+                                        <li>Evite exposição à luz solar direta</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-semibold mb-2">Esculturas:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Desmonte partes removíveis quando possível</li>
+                                        <li>Use espuma especial para proteção</li>
+                                        <li>Construa caixas sob medida se necessário</li>
+                                        <li>Identifique pontos de apoio seguros</li>
+                                        <li>Documente o estado antes do transporte</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-blue-200 p-3 rounded">
+                                    <p class="text-sm"><strong>💡 Dica:</strong> Para obras valiosas, considere contratar especialista em transporte de arte.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-lg">
+                            <h4 class="text-green-700 font-heading text-xl font-bold mb-4 flex items-center">
+                                🌿 Plantas e Jardins
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Plantas de Interior:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Pare de regar 2-3 dias antes da mudança</li>
+                                        <li>Pode galhos longos para facilitar transporte</li>
+                                        <li>Use caixas com furos para ventilação</li>
+                                        <li>Proteja do vento e temperatura extrema</li>
+                                        <li>Transporte no dia da mudança (não antes)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-semibold mb-2">Plantas Grandes:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Amarre galhos com corda macia</li>
+                                        <li>Proteja o vaso com plástico bolha</li>
+                                        <li>Use carrinho de plataforma para transporte</li>
+                                        <li>Mantenha na sombra durante o trajeto</li>
+                                        <li>Regue moderadamente após instalação</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-green-200 p-3 rounded">
+                                    <p class="text-sm"><strong>🚫 Atenção:</strong> Algumas empresas de mudança não transportam plantas. Verifique antes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-red-50 to-red-100 p-6 rounded-lg">
+                            <h4 class="text-red-700 font-heading text-xl font-bold mb-4 flex items-center">
+                                💎 Objetos de Valor e Antiquários
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Joias e Metais Preciosos:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Transporte pessoalmente sempre que possível</li>
+                                        <li>Use cofre portátil ou maleta segura</li>
+                                        <li>Faça seguro específico para transporte</li>
+                                        <li>Não declare valor alto na documentação</li>
+                                        <li>Mantenha certificados e notas separados</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-semibold mb-2">Móveis Antigos:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Desmonte apenas se absolutamente necessário</li>
+                                        <li>Fotografe detalhes antes da desmontagem</li>
+                                        <li>Use materiais que não danifiquem o acabamento</li>
+                                        <li>Evite fita adesiva diretamente na madeira</li>
+                                        <li>Considere avaliação prévia por especialista</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg">
+                            <h4 class="text-yellow-700 font-heading text-xl font-bold mb-4 flex items-center">
+                                🏺 Coleções e Itens Frágeis
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="font-semibold mb-2">Porcelanas e Cristais:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Embale individualmente cada peça</li>
+                                        <li>Use divisórias nas caixas</li>
+                                        <li>Coloque sempre a peça mais pesada embaixo</li>
+                                        <li>Preencha todos os espaços vazios</li>
+                                        <li>Identifique claramente como "FRÁGIL"</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="font-semibold mb-2">Eletrônicos Sensíveis:</h5>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>Use embalagem antiestática quando disponível</li>
+                                        <li>Remova discos rígidos valiosos</li>
+                                        <li>Faça backup de dados importantes</li>
+                                        <li>Proteja de campos magnéticos</li>
+                                        <li>Deixe aclimatar antes de ligar</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary text-white p-6 rounded-lg mt-8">
+                        <h4 class="font-heading text-lg font-bold mb-3">Checklist Geral para Itens Especiais</h4>
+                        <ul class="space-y-2">
+                            <li>✅ Fotografar estado original</li>
+                            <li>✅ Verificar cobertura do seguro</li>
+                            <li>✅ Obter avaliação profissional se necessário</li>
+                            <li>✅ Usar materiais de proteção adequados</li>
+                            <li>✅ Contratar especialistas quando indicado</li>
+                            <li>✅ Planejar transporte em condições ideais</li>
+                            <li>✅ Vistoriar cuidadosamente na entrega</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-light-gray p-4 rounded-lg mt-6">
+                        <h5 class="text-primary font-heading font-semibold mb-2">🏆 Recomendação Final</h5>
+                        <p>Para itens de alto valor sentimental ou monetário, não hesite em investir em embalagem profissional e seguro adequado. O custo é pequeno comparado ao valor dos seus bens mais preciosos.</p>
+                    </div>
+                `
+            }
+        };
+
+        // Blog Modal Functions
+        function openBlogModal(postType) {
+            const modal = document.getElementById('blogModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const modalReadTime = document.getElementById('modalReadTime');
+            
+            const post = blogData[postType];
+            if (post) {
+                modalTitle.textContent = post.title;
+                modalContent.innerHTML = post.content;
+                modalReadTime.textContent = post.readTime;
+                
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                
+                // Animate modal in
+                gsap.fromTo(modal.querySelector('.fixed.inset-x-4'), {
+                    opacity: 0,
+                    scale: 0.9,
+                    y: 50
+                }, {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            }
+        }
+        
+        function closeBlogModal() {
+            const modal = document.getElementById('blogModal');
+            
+            gsap.to(modal.querySelector('.fixed.inset-x-4'), {
+                opacity: 0,
+                scale: 0.9,
+                y: 50,
+                duration: 0.2,
+                ease: "power2.in",
+                onComplete: () => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('blogModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBlogModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBlogModal();
+            }
         });
     </script>
 </body>

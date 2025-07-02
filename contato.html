@@ -24,6 +24,9 @@
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico">
     
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
     <style>
         :root {
             --primary-color: #00579B;
@@ -83,7 +86,7 @@
             }
         }
     </script>
-<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
+<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
 <body class="text-dark-gray antialiased">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white shadow-lg">
@@ -140,69 +143,77 @@
     </section>
 
     <!-- Contact Methods -->
-    <section class="py-20 bg-light-gray">
+    <section class="py-12 bg-light-gray">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center mb-8">
+                <h2 class="font-heading text-3xl font-bold mb-4 text-primary">Entre em Contato</h2>
+                <p class="text-medium-gray max-w-2xl mx-auto">Escolha a melhor forma de falar conosco</p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
                 
                 <!-- WhatsApp -->
-                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll">
-                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-green-50 rounded-2xl">
-                        <i class="fab fa-whatsapp text-4xl text-green-500"></i>
+                <div class="contact-card bg-white p-4 rounded-lg shadow text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 flex items-center justify-center bg-green-50 rounded-full">
+                        <i class="fab fa-whatsapp text-2xl text-green-500"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">WhatsApp</h3>
-                    <p class="text-medium-gray mb-6 text-sm">
-                        Resposta rápida para orçamentos e dúvidas
+                    <h3 class="font-heading text-lg font-bold mb-2 text-primary">WhatsApp</h3>
+                    <p class="text-medium-gray mb-3 text-xs">
+                        Resposta rápida para orçamentos
                     </p>
                     <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Rapido%20Titan.%20%F0%9F%98%8A" 
                        target="_blank" 
-                       class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 w-full">
+                       class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm">
                         (15) 98119-4338
                     </a>
                 </div>
 
                 <!-- Telefone -->
-                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll" data-delay="0.1">
-                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-blue-50 rounded-2xl">
-                        <i class="fas fa-phone text-4xl text-primary"></i>
+                <div class="contact-card bg-white p-4 rounded-lg shadow text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 flex items-center justify-center bg-blue-50 rounded-full">
+                        <i class="fas fa-phone text-2xl text-primary"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">Telefone</h3>
-                    <p class="text-medium-gray mb-6 text-sm">
+                    <h3 class="font-heading text-lg font-bold mb-2 text-primary">Telefone</h3>
+                    <p class="text-medium-gray mb-3 text-xs">
                         Ligue diretamente para nós
                     </p>
                     <a href="tel:+5515981194338" 
-                       class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 w-full">
+                       class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm">
                         (15) 98119-4338
                     </a>
                 </div>
 
                 <!-- Email -->
-                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll" data-delay="0.2">
-                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-orange-50 rounded-2xl">
-                        <i class="fas fa-envelope text-4xl text-secondary"></i>
+                <div class="contact-card bg-white p-4 rounded-lg shadow text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 flex items-center justify-center bg-orange-50 rounded-full">
+                        <i class="fas fa-envelope text-2xl text-secondary"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">Email</h3>
-                    <p class="text-medium-gray mb-6 text-sm">
+                    <h3 class="font-heading text-lg font-bold mb-2 text-primary">Email</h3>
+                    <p class="text-medium-gray mb-3 text-xs">
                         Envie sua mensagem por email
                     </p>
-                    <a href="mailto:contato@rapidotitan.com.br" 
-                       class="bg-secondary hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm">
-                        contato@rapidotitan.com.br
+                    <a href="mailto:taniorobertosilva@gmail.com" 
+                       class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm">
+                        taniorobertosilva@gmail.com
                     </a>
                 </div>
 
                 <!-- Localização -->
-                <div class="contact-card bg-white p-8 rounded-2xl shadow-lg text-center contact-card-hover animate-on-scroll" data-delay="0.3">
-                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-red-50 rounded-2xl">
-                        <i class="fas fa-map-marker-alt text-4xl text-red-500"></i>
+                <div class="contact-card bg-white p-4 rounded-lg shadow text-center">
+                    <div class="w-12 h-12 mx-auto mb-2 flex items-center justify-center bg-red-50 rounded-full">
+                        <i class="fas fa-map-marker-alt text-2xl text-red-500"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold mb-4 text-primary">Localização</h3>
-                    <p class="text-medium-gray mb-6 text-sm">
+                    <h3 class="font-heading text-lg font-bold mb-2 text-primary">Localização</h3>
+                    <p class="text-medium-gray mb-3 text-xs">
                         Atendemos Sorocaba e região
                     </p>
-                    <div class="bg-gray-100 text-dark-gray px-6 py-3 rounded-lg font-semibold w-full">
+                    <div class="bg-gray-100 text-dark-gray px-4 py-2 rounded-lg font-semibold w-full text-sm">
                         Sorocaba/SP
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
             </div>
         </div>
     </section>
@@ -223,7 +234,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <!-- Formulário -->
                     <div class="animate-on-scroll">
-                        <form class="space-y-6" action="https://wa.me/5515981194338" method="get" target="_blank">
+                        <form class="space-y-6" onsubmit="sendWhatsApp(); return false;">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="nome" class="block text-sm font-semibold text-dark-gray mb-2">Nome Completo</label>
@@ -239,7 +250,7 @@
                             
                             <div>
                                 <label for="email" class="block text-sm font-semibold text-dark-gray mb-2">Email</label>
-                                <input type="email" id="email" name="email" 
+                                <input type="email" id="email" name="email"
                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
                             </div>
                             
@@ -278,11 +289,12 @@
                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"></textarea>
                             </div>
                             
-                            <button type="submit" onclick="sendWhatsApp()" 
+                            <button type="submit" 
                                     class="w-full bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105">
                                 <i class="fab fa-whatsapp mr-2"></i>
                                 Enviar via WhatsApp
                             </button>
+
                         </form>
                     </div>
                     
@@ -380,62 +392,115 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-gray text-light-gray py-12">
+    <footer class="bg-gradient-to-b from-dark-gray to-black text-light-gray py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-12 w-auto mr-3">
-                        <span class="font-heading text-2xl font-bold text-white">Rápido Titan</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Logo e Descrição -->
+                <div class="md:col-span-1 lg:col-span-1">
+                    <div class="mb-6">
+                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-16 w-auto mb-4">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Rápido Titan</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Seu patrimônio, nosso compromisso. Mudanças seguras e eficientes em Sorocaba e região.</p>
                     </div>
-                    <p class="text-gray-400">Seu patrimônio, nosso compromisso.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4 font-heading">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-secondary transition-colors">Início</a></li>
-                        <li><a href="servicos.html" class="text-gray-400 hover:text-secondary transition-colors">Serviços</a></li>
-                        <li><a href="sobre.html" class="text-gray-400 hover:text-secondary transition-colors">Sobre Nós</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-secondary transition-colors">Blog</a></li>
-                        <li><a href="contato.html" class="text-gray-400 hover:text-secondary transition-colors">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4 font-heading">Contato</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">📱</span>
-                            <a href="tel:+5515981194338" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">💬</span>
-                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-400 hover:text-secondary transition-colors">(15) 98119-4338</a>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">📧</span>
-                            <span class="text-gray-400">contato@rapidotitan.com.br</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-secondary mr-2">📍</span>
-                            <span class="text-gray-400">Sorocaba/SP</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4 font-heading">Redes Sociais</h4>
+                    
+                    <!-- Redes Sociais -->
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📘</a>
-                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" class="text-2xl text-gray-400 hover:text-secondary transition-colors">📷</a>
+                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" 
+                           class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" 
+                           class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
                     </div>
+                </div>
+                
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
+                        Links Rápidos
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-home mr-2 text-secondary"></i>Início</a></li>
+                        <li><a href="servicos.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-truck mr-2 text-secondary"></i>Serviços</a></li>
+                        <li><a href="sobre.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-info-circle mr-2 text-secondary"></i>Sobre Nós</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-blog mr-2 text-secondary"></i>Blog</a></li>
+                        <li><a href="contato.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2 text-secondary"></i>Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contato -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
+                        Contato
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-3 w-4"></i>
+                            <a href="tel:+5515981194338" class="text-gray-300 hover:text-secondary transition-colors duration-300">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-secondary mr-3 w-4"></i>
+                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-300 hover:text-secondary transition-colors duration-300">(15) 98119-4338</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">taniorobertosilva@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Sorocaba/SP</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Horário e Certificados -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
+                        Atendimento
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Seg-Sex: 8h às 18h</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-calendar text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Sáb: 8h às 12h</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Empresa Licenciada</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-certificate text-secondary mr-3 w-4"></i>
+                            <span class="text-gray-300">Seguro Total</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
-                <p class="mt-2"><a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors"><i class="fas fa-code"></i> Ver Código</a></p>
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
+                    <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                        <a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors duration-300 text-sm flex items-center">
+                            <i class="fas fa-code mr-2"></i>Ver Código
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <span class="text-gray-400 text-sm">Desenvolvido com ❤️</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -501,10 +566,18 @@
             message += `• Origem: ${origem}\n`;
             message += `• Destino: ${destino}\n`;
             if (detalhes) message += `• Detalhes: ${detalhes}\n`;
+
             message += `\nAguardo seu contato! Obrigado!`;
             
             const whatsappUrl = `https://wa.me/5515981194338?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
+            
+            // Também enviaria para o email se tivéssemos backend
+            // Em um cenário real, precisaríamos de um serviço de backend como Supabase
+            // para processar o envio de e-mail para taniorobertosilva@gmail.com
+            
+            // Exibe mensagem de confirmação
+            alert('Seu orçamento foi enviado para o WhatsApp');
         }
     </script>
 </body>
