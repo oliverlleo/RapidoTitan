@@ -1,562 +1,804 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - Dicas de Mudança e Frete - Rapido Titan</title>
-    <meta name="description" content="Dicas, checklists e informações úteis para planejar sua mudança ou frete com a Rapido Titan.">
-    
+    <meta
+      name="description"
+      content="Dicas, checklists e informações úteis para planejar sua mudança ou frete com a Rapido Titan."
+    />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    
+
     <!-- GSAP para animações avançadas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
+
     <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico">
-    
+    <link rel="icon" href="images/favicon.ico" />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/style.css" />
+
     <style>
-        :root {
-            --primary-color: #00579B;
-            --secondary-color: #F58634;
-            --dark-gray: #333333;
-            --medium-gray: #666666;
-            --light-gray: #f4f4f4;
-            --white-color: #ffffff;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .font-heading {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        
-        .blog-card-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .blog-card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-        }
-        
-        .text-primary { color: var(--primary-color); }
-        .text-secondary { color: var(--secondary-color); }
-        .bg-primary { background-color: var(--primary-color); }
-        .bg-secondary { background-color: var(--secondary-color); }
-        .border-primary { border-color: var(--primary-color); }
-        .border-secondary { border-color: var(--secondary-color); }
+      :root {
+        --primary-color: #00579b;
+        --secondary-color: #f58634;
+        --dark-gray: #333333;
+        --medium-gray: #666666;
+        --light-gray: #f4f4f4;
+        --white-color: #ffffff;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .font-heading {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .blog-card-hover {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .blog-card-hover:hover {
+        transform: translateY(-10px) scale(1.02);
+      }
+
+      .text-primary {
+        color: var(--primary-color);
+      }
+      .text-secondary {
+        color: var(--secondary-color);
+      }
+      .bg-primary {
+        background-color: var(--primary-color);
+      }
+      .bg-secondary {
+        background-color: var(--secondary-color);
+      }
+      .border-primary {
+        border-color: var(--primary-color);
+      }
+      .border-secondary {
+        border-color: var(--secondary-color);
+      }
     </style>
-    
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#00579B',
-                        secondary: '#F58634',
-                        'dark-gray': '#333333',
-                        'medium-gray': '#666666',
-                        'light-gray': '#f4f4f4'
-                    },
-                    fontFamily: {
-                        'heading': ['Poppins', 'sans-serif'],
-                        'body': ['Roboto', 'sans-serif']
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00579B",
+              secondary: "#F58634",
+              "dark-gray": "#333333",
+              "medium-gray": "#666666",
+              "light-gray": "#f4f4f4",
+            },
+            fontFamily: {
+              heading: ["Poppins", "sans-serif"],
+              body: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-<script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
-<body class="text-dark-gray antialiased">
+  </head>
+  <body class="text-dark-gray antialiased">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <img src="images/logo.png" alt="Logo Rápido Titan" class="h-12 w-auto">
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Início</a>
-                        <a href="servicos.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Serviços</a>
-                        <a href="sobre.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Sobre</a>
-                        <a href="blog.html" class="nav-link text-primary transition-colors duration-300 font-heading font-medium">Blog</a>
-                        <a href="contato.html" class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium">Contato</a>
-                        <a href="https://wa.me/5515981194338" target="_blank" class="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 font-heading font-semibold">
-                            Orçamento
-                        </a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-dark-gray hover:text-primary">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0">
+            <img
+              src="images/logo.png"
+              alt="Logo Rápido Titan"
+              class="h-12 w-auto"
+            />
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="index.html"
+                class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium"
+                >Início</a
+              >
+              <a
+                href="servicos.html"
+                class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium"
+                >Serviços</a
+              >
+              <a
+                href="sobre.html"
+                class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium"
+                >Sobre</a
+              >
+              <a
+                href="blog.html"
+                class="nav-link text-primary transition-colors duration-300 font-heading font-medium"
+                >Blog</a
+              >
+              <a
+                href="contato.html"
+                class="nav-link text-dark-gray hover:text-primary transition-colors duration-300 font-heading font-medium"
+                >Contato</a
+              >
+              <a
+                href="https://wa.me/5515981194338"
+                target="_blank"
+                class="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 font-heading font-semibold"
+              >
+                Orçamento
+              </a>
             </div>
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-dark-gray hover:text-primary"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Início</a>
-                <a href="servicos.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Serviços</a>
-                <a href="sobre.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Sobre</a>
-                <a href="blog.html" class="block px-3 py-2 text-primary font-heading">Blog</a>
-                <a href="contato.html" class="block px-3 py-2 text-dark-gray hover:text-primary font-heading">Contato</a>
-                <a href="https://wa.me/5515981194338" target="_blank" class="block mx-3 my-2 bg-secondary text-white px-4 py-2 rounded-lg text-center font-heading">Orçamento</a>
-            </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="index.html"
+            class="block px-3 py-2 text-dark-gray hover:text-primary font-heading"
+            >Início</a
+          >
+          <a
+            href="servicos.html"
+            class="block px-3 py-2 text-dark-gray hover:text-primary font-heading"
+            >Serviços</a
+          >
+          <a
+            href="sobre.html"
+            class="block px-3 py-2 text-dark-gray hover:text-primary font-heading"
+            >Sobre</a
+          >
+          <a href="blog.html" class="block px-3 py-2 text-primary font-heading"
+            >Blog</a
+          >
+          <a
+            href="contato.html"
+            class="block px-3 py-2 text-dark-gray hover:text-primary font-heading"
+            >Contato</a
+          >
+          <a
+            href="https://wa.me/5515981194338"
+            target="_blank"
+            class="block mx-3 my-2 bg-secondary text-white px-4 py-2 rounded-lg text-center font-heading"
+            >Orçamento</a
+          >
         </div>
+      </div>
     </nav>
 
     <!-- Page Header -->
     <section class="relative pt-24 pb-16 bg-primary text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 animate-on-scroll">
-                Blog Rápido Titan
-            </h1>
-            <p class="text-xl opacity-90 max-w-3xl mx-auto animate-on-scroll">
-                Dicas e Informações para Sua Mudança e Frete
-            </p>
-        </div>
+      <div class="container mx-auto px-4 text-center">
+        <h1
+          class="font-heading text-4xl md:text-5xl font-bold mb-4 animate-on-scroll"
+        >
+          Blog Rápido Titan
+        </h1>
+        <p class="text-xl opacity-90 max-w-3xl mx-auto animate-on-scroll">
+          Dicas e Informações para Sua Mudança e Frete
+        </p>
+      </div>
     </section>
 
     <!-- Blog Posts Grid -->
     <section class="py-20 bg-light-gray">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Post 1: Checklist -->
-                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll">
-                    <div class="h-48 bg-gradient-to-br from-primary to-blue-600 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-clipboard-check text-6xl text-white opacity-50"></i>
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold">
-                                Checklist
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
-                            Checklist Completo para Mudança Residencial
-                        </h3>
-                        <p class="text-medium-gray mb-4 text-sm">
-                            Organize sua mudança de forma eficiente com nosso checklist passo a passo. Desde 2 meses antes até o dia da mudança.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-medium-gray">
-                                <i class="fas fa-calendar mr-2"></i>5 min de leitura
-                            </span>
-                            <button onclick="openBlogModal('checklist')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
-                                Ler Mais
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 2: Mudança Comercial -->
-                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.1">
-                    <div class="h-48 bg-gradient-to-br from-secondary to-orange-600 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-building text-6xl text-white opacity-50"></i>
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
-                                Comercial
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
-                            Como Fazer Mudança Comercial Sem Parar o Negócio
-                        </h3>
-                        <p class="text-medium-gray mb-4 text-sm">
-                            Estratégias para mudar sua empresa minimizando o tempo de inatividade e mantendo a produtividade da equipe.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-medium-gray">
-                                <i class="fas fa-calendar mr-2"></i>7 min de leitura
-                            </span>
-                            <button onclick="openBlogModal('commercial')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
-                                Ler Mais
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 3: Embalagem -->
-                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.2">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-box-open text-6xl text-white opacity-50"></i>
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-white text-green-600 px-3 py-1 rounded-full text-sm font-semibold">
-                                Dicas
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
-                            Técnicas Profissionais de Embalagem
-                        </h3>
-                        <p class="text-medium-gray mb-4 text-sm">
-                            Aprenda as melhores técnicas para proteger seus objetos durante a mudança, desde itens frágeis até eletrônicos.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-medium-gray">
-                                <i class="fas fa-calendar mr-2"></i>6 min de leitura
-                            </span>
-                            <button onclick="openBlogModal('packing')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
-                                Ler Mais
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 4: Reduzindo Estresse -->
-                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.3">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-spa text-6xl text-white opacity-50"></i>
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-white text-purple-600 px-3 py-1 rounded-full text-sm font-semibold">
-                                Bem-estar
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
-                            10 Dicas para Reduzir o Estresse da Mudança
-                        </h3>
-                        <p class="text-medium-gray mb-4 text-sm">
-                            Transforme sua mudança numa experiência tranquila com estratégias comprovadas para reduzir ansiedade e estresse.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-medium-gray">
-                                <i class="fas fa-calendar mr-2"></i>8 min de leitura
-                            </span>
-                            <button onclick="openBlogModal('stress')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
-                                Ler Mais
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 5: Itens Especiais -->
-                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.4">
-                    <div class="h-48 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-wine-glass text-6xl text-white opacity-50"></i>
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-white text-red-600 px-3 py-1 rounded-full text-sm font-semibold">
-                                Especializado
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
-                            Cuidados com Itens Especiais: Pianos, Obras de Arte e Mais
-                        </h3>
-                        <p class="text-medium-gray mb-4 text-sm">
-                            Guia completo para transporte seguro de itens de alto valor e objetos que requerem cuidados especiais.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-medium-gray">
-                                <i class="fas fa-calendar mr-2"></i>9 min de leitura
-                            </span>
-                            <button onclick="openBlogModal('special')" class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
-                                Ler Mais
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Download Checklist -->
-                <article class="blog-card bg-gradient-to-br from-primary to-blue-600 rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll" data-delay="0.5">
-                    <div class="h-48 bg-gradient-to-br from-primary to-blue-600 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-download text-6xl text-white opacity-50"></i>
-                        </div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-white text-primary px-3 py-1 rounded-full text-sm font-semibold">
-                                Grátis
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-white">
-                        <h3 class="font-heading text-xl font-bold mb-3 text-primary">
-                            Download Grátis
-                        </h3>
-                        <p class="text-medium-gray mb-4 text-sm">
-                            Baixe nosso checklist completo de mudança residencial em PDF e tenha tudo organizado.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-medium-gray">
-                                <i class="fas fa-file-pdf mr-2"></i>Checklist PDF
-                            </span>
-                            <a href="checklist_mudanca_residencial_rapido_titan.pdf" 
-                               download 
-                               class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300">
-                                <i class="fas fa-download mr-2"></i>
-                                Baixar PDF
-                            </a>
-                        </div>
-                    </div>
-                </article>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Post 1: Checklist -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-primary to-blue-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i
+                  class="fas fa-clipboard-check text-6xl text-white opacity-50"
+                ></i>
+              </div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Checklist
+                </span>
+              </div>
             </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold mb-3 text-primary">
+                Checklist Completo para Mudança Residencial
+              </h3>
+              <p class="text-medium-gray mb-4 text-sm">
+                Organize sua mudança de forma eficiente com nosso checklist
+                passo a passo. Desde 2 meses antes até o dia da mudança.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-medium-gray">
+                  <i class="fas fa-calendar mr-2"></i>5 min de leitura
+                </span>
+                <button
+                  onclick="openBlogModal('checklist')"
+                  class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300"
+                >
+                  Ler Mais
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2: Mudança Comercial -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"
+            data-delay="0.1"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-secondary to-orange-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fas fa-building text-6xl text-white opacity-50"></i>
+              </div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Comercial
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold mb-3 text-primary">
+                Como Fazer Mudança Comercial Sem Parar o Negócio
+              </h3>
+              <p class="text-medium-gray mb-4 text-sm">
+                Estratégias para mudar sua empresa minimizando o tempo de
+                inatividade e mantendo a produtividade da equipe.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-medium-gray">
+                  <i class="fas fa-calendar mr-2"></i>7 min de leitura
+                </span>
+                <button
+                  onclick="openBlogModal('commercial')"
+                  class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300"
+                >
+                  Ler Mais
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3: Embalagem -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"
+            data-delay="0.2"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-green-500 to-green-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fas fa-box-open text-6xl text-white opacity-50"></i>
+              </div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-white text-green-600 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Dicas
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold mb-3 text-primary">
+                Técnicas Profissionais de Embalagem
+              </h3>
+              <p class="text-medium-gray mb-4 text-sm">
+                Aprenda as melhores técnicas para proteger seus objetos durante
+                a mudança, desde itens frágeis até eletrônicos.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-medium-gray">
+                  <i class="fas fa-calendar mr-2"></i>6 min de leitura
+                </span>
+                <button
+                  onclick="openBlogModal('packing')"
+                  class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300"
+                >
+                  Ler Mais
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4: Reduzindo Estresse -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"
+            data-delay="0.3"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fas fa-spa text-6xl text-white opacity-50"></i>
+              </div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-white text-purple-600 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Bem-estar
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold mb-3 text-primary">
+                10 Dicas para Reduzir o Estresse da Mudança
+              </h3>
+              <p class="text-medium-gray mb-4 text-sm">
+                Transforme sua mudança numa experiência tranquila com
+                estratégias comprovadas para reduzir ansiedade e estresse.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-medium-gray">
+                  <i class="fas fa-calendar mr-2"></i>8 min de leitura
+                </span>
+                <button
+                  onclick="openBlogModal('stress')"
+                  class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300"
+                >
+                  Ler Mais
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5: Itens Especiais -->
+          <article
+            class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"
+            data-delay="0.4"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fas fa-wine-glass text-6xl text-white opacity-50"></i>
+              </div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-white text-red-600 px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Especializado
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading text-xl font-bold mb-3 text-primary">
+                Cuidados com Itens Especiais: Pianos, Obras de Arte e Mais
+              </h3>
+              <p class="text-medium-gray mb-4 text-sm">
+                Guia completo para transporte seguro de itens de alto valor e
+                objetos que requerem cuidados especiais.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-medium-gray">
+                  <i class="fas fa-calendar mr-2"></i>9 min de leitura
+                </span>
+                <button
+                  onclick="openBlogModal('special')"
+                  class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300"
+                >
+                  Ler Mais
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Download Checklist -->
+          <article
+            class="blog-card bg-gradient-to-br from-primary to-blue-600 rounded-2xl shadow-lg overflow-hidden blog-card-hover animate-on-scroll"
+            data-delay="0.5"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-primary to-blue-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fas fa-download text-6xl text-white opacity-50"></i>
+              </div>
+              <div class="absolute top-4 left-4">
+                <span
+                  class="bg-white text-primary px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  Grátis
+                </span>
+              </div>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-heading text-xl font-bold mb-3 text-primary">
+                Download Grátis
+              </h3>
+              <p class="text-medium-gray mb-4 text-sm">
+                Baixe nosso checklist completo de mudança residencial em PDF e
+                tenha tudo organizado.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-medium-gray">
+                  <i class="fas fa-file-pdf mr-2"></i>Checklist PDF
+                </span>
+                <a
+                  href="checklist_mudanca_residencial_rapido_titan.pdf"
+                  download
+                  class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-300"
+                >
+                  <i class="fas fa-download mr-2"></i>
+                  Baixar PDF
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
     <!-- Newsletter Section -->
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-2xl mx-auto animate-on-scroll">
-                <h2 class="font-heading text-3xl font-bold mb-4 text-primary">
-                    Fique por dentro das novidades
-                </h2>
-                <p class="text-medium-gray mb-8">
-                    Receba dicas exclusivas sobre mudanças, organização e transporte diretamente no seu WhatsApp.
-                </p>
-                <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20receber%20dicas%20sobre%20mudan%C3%A7as%20no%20WhatsApp.%20%F0%9F%98%8A" 
-                   target="_blank" 
-                   class="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 inline-block">
-                    <i class="fab fa-whatsapp mr-2"></i>
-                    Receber Dicas no WhatsApp
-                </a>
-            </div>
+      <div class="container mx-auto px-4 text-center">
+        <div class="max-w-2xl mx-auto animate-on-scroll">
+          <h2 class="font-heading text-3xl font-bold mb-4 text-primary">
+            Fique por dentro das novidades
+          </h2>
+          <p class="text-medium-gray mb-8">
+            Receba dicas exclusivas sobre mudanças, organização e transporte
+            diretamente no seu WhatsApp.
+          </p>
+          <a
+            href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Gostaria%20de%20receber%20dicas%20sobre%20mudan%C3%A7as%20no%20WhatsApp.%20%F0%9F%98%8A"
+            target="_blank"
+            class="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 inline-block"
+          >
+            <i class="fab fa-whatsapp mr-2"></i>
+            Receber Dicas no WhatsApp
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-dark-gray to-black text-light-gray py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
-                <!-- Logo e Descrição -->
-                <div class="md:col-span-1 lg:col-span-1">
-                    <div class="mb-6">
-                        <img src="images/footer_logo.png" alt="Logo Rápido Titan Rodapé" class="h-16 w-auto mb-4">
-                        <h3 class="font-heading text-2xl font-bold text-white mb-2">Rápido Titan</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">Seu patrimônio, nosso compromisso. Mudanças seguras e eficientes em Sorocaba e região.</p>
-                    </div>
-                    
-                    <!-- Redes Sociais -->
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1AYjEiaBQn/" target="_blank" 
-                           class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
-                            <i class="fab fa-facebook-f text-lg"></i>
-                        </a>
-                        <a href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10" target="_blank" 
-                           class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-all duration-300 hover:scale-110">
-                            <i class="fab fa-instagram text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Links Rápidos -->
-                <div>
-                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
-                        Links Rápidos
-                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
-                    </h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
-                            <i class="fas fa-home mr-2 text-secondary"></i>Início</a></li>
-                        <li><a href="servicos.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
-                            <i class="fas fa-truck mr-2 text-secondary"></i>Serviços</a></li>
-                        <li><a href="sobre.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
-                            <i class="fas fa-info-circle mr-2 text-secondary"></i>Sobre Nós</a></li>
-                        <li><a href="blog.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
-                            <i class="fas fa-blog mr-2 text-secondary"></i>Blog</a></li>
-                        <li><a href="contato.html" class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center">
-                            <i class="fas fa-envelope mr-2 text-secondary"></i>Contato</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contato -->
-                <div>
-                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
-                        Contato
-                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
-                    </h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center">
-                            <i class="fas fa-phone text-secondary mr-3 w-4"></i>
-                            <a href="tel:+5515981194338" class="text-gray-300 hover:text-secondary transition-colors duration-300">(15) 98119-4338</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fab fa-whatsapp text-secondary mr-3 w-4"></i>
-                            <a href="https://wa.me/5515981194338" target="_blank" class="text-gray-300 hover:text-secondary transition-colors duration-300">(15) 98119-4338</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-secondary mr-3 w-4"></i>
-                            <span class="text-gray-300">taniorobertosilva@gmail.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-secondary mr-3 w-4"></i>
-                            <span class="text-gray-300">Sorocaba/SP</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Horário e Certificados -->
-                <div>
-                    <h4 class="text-white font-semibold mb-6 font-heading text-lg relative">
-                        Atendimento
-                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"></span>
-                    </h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center">
-                            <i class="fas fa-clock text-secondary mr-3 w-4"></i>
-                            <span class="text-gray-300">Seg-Sex: 8h às 18h</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-calendar text-secondary mr-3 w-4"></i>
-                            <span class="text-gray-300">Sáb: 8h às 12h</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-shield-alt text-secondary mr-3 w-4"></i>
-                            <span class="text-gray-300">Empresa Licenciada</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-certificate text-secondary mr-3 w-4"></i>
-                            <span class="text-gray-300">Seguro Total</span>
-                        </li>
-                    </ul>
-                </div>
+    <footer
+      class="bg-gradient-to-b from-dark-gray to-black text-light-gray py-16"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+          <!-- Logo e Descrição -->
+          <div class="md:col-span-1 lg:col-span-1">
+            <div class="mb-6">
+              <img
+                src="images/footer_logo.png"
+                alt="Logo Rápido Titan Rodapé"
+                class="h-16 w-auto mb-4"
+              />
+              <h3 class="font-heading text-2xl font-bold text-white mb-2">
+                Rápido Titan
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Seu patrimônio, nosso compromisso. Mudanças seguras e eficientes
+                em Sorocaba e região.
+              </p>
             </div>
-            
-            <!-- Footer Bottom -->
-            <div class="border-t border-gray-700 mt-12 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm">&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
-                    <div class="mt-4 md:mt-0 flex items-center space-x-4">
-                        <a href="codigo.html" target="_blank" class="text-secondary hover:text-orange-400 transition-colors duration-300 text-sm flex items-center">
-                            <i class="fas fa-code mr-2"></i>Ver Código
-                        </a>
-                        <span class="text-gray-600">|</span>
-                        <span class="text-gray-400 text-sm">Desenvolvido com ❤️</span>
-                    </div>
-                </div>
+
+            <!-- Redes Sociais -->
+            <div class="flex space-x-4">
+              <a
+                href="https://www.facebook.com/share/1AYjEiaBQn/"
+                target="_blank"
+                class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110"
+              >
+                <i class="fab fa-facebook-f text-lg"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/taniorapidotitan?igsh=d3o5bXBza2tkNG10"
+                target="_blank"
+                class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-all duration-300 hover:scale-110"
+              >
+                <i class="fab fa-instagram text-lg"></i>
+              </a>
             </div>
+          </div>
+
+          <!-- Links Rápidos -->
+          <div>
+            <h4
+              class="text-white font-semibold mb-6 font-heading text-lg relative"
+            >
+              Links Rápidos
+              <span
+                class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"
+              ></span>
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center"
+                >
+                  <i class="fas fa-home mr-2 text-secondary"></i>Início</a
+                >
+              </li>
+              <li>
+                <a
+                  href="servicos.html"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center"
+                >
+                  <i class="fas fa-truck mr-2 text-secondary"></i>Serviços</a
+                >
+              </li>
+              <li>
+                <a
+                  href="sobre.html"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center"
+                >
+                  <i class="fas fa-info-circle mr-2 text-secondary"></i>Sobre
+                  Nós</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center"
+                >
+                  <i class="fas fa-blog mr-2 text-secondary"></i>Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contato.html"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300 flex items-center"
+                >
+                  <i class="fas fa-envelope mr-2 text-secondary"></i>Contato</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contato -->
+          <div>
+            <h4
+              class="text-white font-semibold mb-6 font-heading text-lg relative"
+            >
+              Contato
+              <span
+                class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"
+              ></span>
+            </h4>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <i class="fas fa-phone text-secondary mr-3 w-4"></i>
+                <a
+                  href="tel:+5515981194338"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300"
+                  >(15) 98119-4338</a
+                >
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-whatsapp text-secondary mr-3 w-4"></i>
+                <a
+                  href="https://wa.me/5515981194338"
+                  target="_blank"
+                  class="text-gray-300 hover:text-secondary transition-colors duration-300"
+                  >(15) 98119-4338</a
+                >
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-secondary mr-3 w-4"></i>
+                <span class="text-gray-300">taniorobertosilva@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt text-secondary mr-3 w-4"></i>
+                <span class="text-gray-300">Sorocaba/SP</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Horário e Certificados -->
+          <div>
+            <h4
+              class="text-white font-semibold mb-6 font-heading text-lg relative"
+            >
+              Atendimento
+              <span
+                class="absolute bottom-0 left-0 w-12 h-0.5 bg-secondary"
+              ></span>
+            </h4>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <i class="fas fa-clock text-secondary mr-3 w-4"></i>
+                <span class="text-gray-300">Seg-Sex: 8h às 18h</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-calendar text-secondary mr-3 w-4"></i>
+                <span class="text-gray-300">Sáb: 8h às 12h</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-shield-alt text-secondary mr-3 w-4"></i>
+                <span class="text-gray-300">Empresa Licenciada</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-certificate text-secondary mr-3 w-4"></i>
+                <span class="text-gray-300">Seguro Total</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-700 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+              &copy; 2025 Rápido Titan. Todos os direitos reservados.
+            </p>
+            <div class="mt-4 md:mt-0 flex items-center space-x-4">
+              <span class="text-gray-600">|</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Blog Modal -->
     <div id="blogModal" class="fixed inset-0 z-50 hidden">
-        <!-- Backdrop -->
-        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"></div>
-        
-        <!-- Modal Content -->
-        <div class="fixed inset-x-4 top-20 bottom-4 md:inset-x-8 md:top-24 md:bottom-8 bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
-            <!-- Modal Header -->
-            <div class="bg-primary text-white p-6 flex items-center justify-between">
-                <h2 id="modalTitle" class="font-heading text-2xl font-bold"></h2>
-                <button onclick="closeBlogModal()" class="text-white hover:text-gray-300 transition-colors duration-300">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            
-            <!-- Modal Body -->
-            <div class="flex-1 overflow-y-auto p-6">
-                <div id="modalContent" class="prose prose-lg max-w-none">
-                    <!-- Content will be dynamically loaded here -->
-                </div>
-            </div>
-            
-            <!-- Modal Footer -->
-            <div class="bg-light-gray p-6 border-t">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="text-sm text-medium-gray">
-                        <i class="fas fa-clock mr-2"></i>
-                        <span id="modalReadTime"></span>
-                    </div>
-                    <div class="flex gap-3">
-                        <a href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20mudan%C3%A7as%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." 
-                           target="_blank" 
-                           class="bg-secondary hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i>
-                            Solicitar Orçamento
-                        </a>
-                        <button onclick="closeBlogModal()" class="bg-gray-300 hover:bg-gray-400 text-dark-gray px-6 py-2 rounded-lg font-semibold transition-colors duration-300">
-                            Fechar
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <!-- Backdrop -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
+      ></div>
+
+      <!-- Modal Content -->
+      <div
+        class="fixed inset-x-4 top-20 bottom-4 md:inset-x-8 md:top-24 md:bottom-8 bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+      >
+        <!-- Modal Header -->
+        <div
+          class="bg-primary text-white p-6 flex items-center justify-between"
+        >
+          <h2 id="modalTitle" class="font-heading text-2xl font-bold"></h2>
+          <button
+            onclick="closeBlogModal()"
+            class="text-white hover:text-gray-300 transition-colors duration-300"
+          >
+            <i class="fas fa-times text-2xl"></i>
+          </button>
         </div>
+
+        <!-- Modal Body -->
+        <div class="flex-1 overflow-y-auto p-6">
+          <div id="modalContent" class="prose prose-lg max-w-none">
+            <!-- Content will be dynamically loaded here -->
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="bg-light-gray p-6 border-t">
+          <div
+            class="flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
+            <div class="text-sm text-medium-gray">
+              <i class="fas fa-clock mr-2"></i>
+              <span id="modalReadTime"></span>
+            </div>
+            <div class="flex gap-3">
+              <a
+                href="https://wa.me/5515981194338?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20mudan%C3%A7as%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+                target="_blank"
+                class="bg-secondary hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-300"
+              >
+                <i class="fab fa-whatsapp mr-2"></i>
+                Solicitar Orçamento
+              </a>
+              <button
+                onclick="closeBlogModal()"
+                class="bg-gray-300 hover:bg-gray-400 text-dark-gray px-6 py-2 rounded-lg font-semibold transition-colors duration-300"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        // GSAP Animations Setup
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Animate on Scroll Elements
-        gsap.utils.toArray(".animate-on-scroll").forEach((element, index) => {
-            const delay = element.getAttribute("data-delay") || 0;
-            
-            gsap.fromTo(element, {
-                opacity: 0,
-                y: 50
-            }, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                delay: delay,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 80%"
-                }
-            });
-        });
-        
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Hide mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+      // GSAP Animations Setup
+      gsap.registerPlugin(ScrollTrigger);
 
-        // Blog Modal Data
-        const blogData = {
-            checklist: {
-                title: "Checklist Completo para Mudança Residencial",
-                readTime: "5 min de leitura",
-                content: `
+      // Animate on Scroll Elements
+      gsap.utils.toArray(".animate-on-scroll").forEach((element, index) => {
+        const delay = element.getAttribute("data-delay") || 0;
+
+        gsap.fromTo(
+          element,
+          {
+            opacity: 0,
+            y: 50,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: delay,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 80%",
+            },
+          }
+        );
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Hide mobile menu when clicking on a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Blog Modal Data
+      const blogData = {
+        checklist: {
+          title: "Checklist Completo para Mudança Residencial",
+          readTime: "5 min de leitura",
+          content: `
                     <h3 class="text-primary font-heading text-xl font-bold mb-4">Organize sua mudança com eficiência</h3>
                     
                     <p class="mb-6">Uma mudança bem planejada é sinônimo de tranquilidade. Este checklist completo irá guiá-lo através de todas as etapas necessárias para uma mudança residencial organizada e sem estresse.</p>
@@ -612,12 +854,12 @@
                         <h5 class="text-primary font-heading font-semibold mb-2">💡 Dica Especial</h5>
                         <p>Mantenha uma caixa marcada como "PRIMEIRA NECESSIDADE" com itens essenciais como produtos de higiene, medicamentos, roupas para alguns dias, utensílios básicos de cozinha e material de limpeza.</p>
                     </div>
-                `
-            },
-            commercial: {
-                title: "Como Fazer Mudança Comercial Sem Parar o Negócio",
-                readTime: "7 min de leitura",
-                content: `
+                `,
+        },
+        commercial: {
+          title: "Como Fazer Mudança Comercial Sem Parar o Negócio",
+          readTime: "7 min de leitura",
+          content: `
                     <h3 class="text-primary font-heading text-xl font-bold mb-4">Mantenha sua empresa funcionando durante a mudança</h3>
                     
                     <p class="mb-6">Uma mudança comercial bem executada pode ser realizada com mínimo impacto nas operações do seu negócio. O segredo está no planejamento detalhado e na execução em etapas.</p>
@@ -694,12 +936,12 @@
                         <h5 class="text-primary font-heading font-semibold mb-2">⚡ Dica de Ouro</h5>
                         <p>Programe a mudança para um final de semana ou feriado prolongado. Isso permite mais tempo para instalação e testes antes da retomada normal das atividades.</p>
                     </div>
-                `
-            },
-            packing: {
-                title: "Técnicas Profissionais de Embalagem",
-                readTime: "6 min de leitura",
-                content: `
+                `,
+        },
+        packing: {
+          title: "Técnicas Profissionais de Embalagem",
+          readTime: "6 min de leitura",
+          content: `
                     <h3 class="text-primary font-heading text-xl font-bold mb-4">Proteja seus objetos como um profissional</h3>
                     
                     <p class="mb-6">A embalagem adequada é fundamental para garantir que seus pertences cheguem intactos ao destino. Aprenda as técnicas utilizadas por profissionais de mudança.</p>
@@ -786,12 +1028,12 @@
                         <h5 class="text-primary font-heading font-semibold mb-2">🎯 Dica Profissional</h5>
                         <p>Prepare uma "caixa de sobrevivência" com itens essenciais para os primeiros dias: produtos de higiene, medicamentos, muda de roupa, carregadores, utensílios básicos de cozinha e material de limpeza.</p>
                     </div>
-                `
-            },
-            stress: {
-                title: "10 Dicas para Reduzir o Estresse da Mudança",
-                readTime: "8 min de leitura",
-                content: `
+                `,
+        },
+        stress: {
+          title: "10 Dicas para Reduzir o Estresse da Mudança",
+          readTime: "8 min de leitura",
+          content: `
                     <h3 class="text-primary font-heading text-xl font-bold mb-4">Transforme sua mudança numa experiência tranquila</h3>
                     
                     <p class="mb-6">Mudança não precisa ser sinônimo de estresse. Com as estratégias certas, você pode tornar esse processo muito mais tranquilo e até prazeroso. Aqui estão 10 dicas comprovadas para reduzir a ansiedade.</p>
@@ -864,12 +1106,12 @@
                         <h5 class="font-heading font-semibold mb-2">💪 Lembre-se</h5>
                         <p>Mudança é uma das experiências mais estressantes da vida, mas também pode ser uma das mais renovadoras. Seja paciente consigo mesmo e lembre-se: isso também passará!</p>
                     </div>
-                `
-            },
-            special: {
-                title: "Cuidados com Itens Especiais: Pianos, Obras de Arte e Mais",
-                readTime: "9 min de leitura",
-                content: `
+                `,
+        },
+        special: {
+          title: "Cuidados com Itens Especiais: Pianos, Obras de Arte e Mais",
+          readTime: "9 min de leitura",
+          content: `
                     <h3 class="text-primary font-heading text-xl font-bold mb-4">Transporte seguro para seus objetos mais preciosos</h3>
                     
                     <p class="mb-6">Alguns objetos requerem cuidados especiais durante uma mudança devido ao seu valor, fragilidade ou características únicas. Este guia aborda as melhores práticas para transportar itens que demandam atenção especial.</p>
@@ -1055,70 +1297,76 @@
                         <h5 class="text-primary font-heading font-semibold mb-2">🏆 Recomendação Final</h5>
                         <p>Para itens de alto valor sentimental ou monetário, não hesite em investir em embalagem profissional e seguro adequado. O custo é pequeno comparado ao valor dos seus bens mais preciosos.</p>
                     </div>
-                `
-            }
-        };
+                `,
+        },
+      };
 
-        // Blog Modal Functions
-        function openBlogModal(postType) {
-            const modal = document.getElementById('blogModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            const modalReadTime = document.getElementById('modalReadTime');
-            
-            const post = blogData[postType];
-            if (post) {
-                modalTitle.textContent = post.title;
-                modalContent.innerHTML = post.content;
-                modalReadTime.textContent = post.readTime;
-                
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                
-                // Animate modal in
-                gsap.fromTo(modal.querySelector('.fixed.inset-x-4'), {
-                    opacity: 0,
-                    scale: 0.9,
-                    y: 50
-                }, {
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
+      // Blog Modal Functions
+      function openBlogModal(postType) {
+        const modal = document.getElementById("blogModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalContent = document.getElementById("modalContent");
+        const modalReadTime = document.getElementById("modalReadTime");
+
+        const post = blogData[postType];
+        if (post) {
+          modalTitle.textContent = post.title;
+          modalContent.innerHTML = post.content;
+          modalReadTime.textContent = post.readTime;
+
+          modal.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+
+          // Animate modal in
+          gsap.fromTo(
+            modal.querySelector(".fixed.inset-x-4"),
+            {
+              opacity: 0,
+              scale: 0.9,
+              y: 50,
+            },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.3,
+              ease: "power2.out",
             }
+          );
         }
-        
-        function closeBlogModal() {
-            const modal = document.getElementById('blogModal');
-            
-            gsap.to(modal.querySelector('.fixed.inset-x-4'), {
-                opacity: 0,
-                scale: 0.9,
-                y: 50,
-                duration: 0.2,
-                ease: "power2.in",
-                onComplete: () => {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
+      }
+
+      function closeBlogModal() {
+        const modal = document.getElementById("blogModal");
+
+        gsap.to(modal.querySelector(".fixed.inset-x-4"), {
+          opacity: 0,
+          scale: 0.9,
+          y: 50,
+          duration: 0.2,
+          ease: "power2.in",
+          onComplete: () => {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "auto";
+          },
+        });
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("blogModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeBlogModal();
+          }
+        });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeBlogModal();
         }
-        
-        // Close modal when clicking outside
-        document.getElementById('blogModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeBlogModal();
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeBlogModal();
-            }
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
