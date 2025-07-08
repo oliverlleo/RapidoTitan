@@ -1,149 +1,120 @@
-# Rápido Titan Website
+# Rápido Titan - Website Completo
 
-Website moderno para empresa de mudanças e fretes em Sorocaba.
+Sistema completo de website para empresa de mudanças e fretes em Sorocaba.
 
-## 🚀 Tecnologias
+## 📁 Estrutura do Projeto
+
+```
+rapido-titan-website/
+├── 📄 Páginas Principais
+│   ├── index.html              # Página inicial
+│   ├── contato.html            # Página de contato
+│   ├── servicos.html           # Lista de serviços
+│   ├── sobre.html              # Sobre a empresa
+│   └── blog.html               # Blog principal
+│
+├── 🔧 Páginas de Serviços
+│   ├── servico-residencial.html
+│   ├── servico-comercial.html
+│   ├── servico-fretes.html
+│   ├── servico-interestadual.html
+│   ├── servico-embalagem.html
+│   ├── servico-montagem-moveis.html
+│   └── servico-organize.html
+│
+├── 📝 Blog
+│   ├── blog-checklist.html
+│   ├── blog-commercial-move.html
+│   ├── blog-packing.html
+│   ├── blog-special-items.html
+│   └── blog-stress.html
+│
+├── 🎨 css/
+│   ├── style.css              # Estilos principais
+│   └── responsive.css         # Responsividade
+│
+├── ⚡ js/
+│   ├── main.js                # JavaScript principal
+│   ├── animations.js          # Animações GSAP
+│   └── blog_search.js         # Busca do blog
+│
+├── 🖼️ images/
+│   ├── logo.png               # Logotipo
+│   ├── hero-image.jpg         # Imagem principal
+│   ├── service-*.jpg          # Imagens dos serviços
+│   ├── blog_*.jpeg            # Imagens do blog
+│   └── icon_*.png             # Ícones diversos
+│
+├── 🎬 videos/
+│   └── interestadual_video.mp4
+│
+└── 📋 checklist_mudanca_residencial_rapido_titan.pdf
+```
+
+## 🚀 Tecnologias Utilizadas
 
 - **HTML5** - Estrutura semântica
-- **Tailwind CSS** - Framework CSS utilitário via CDN
-- **GSAP** - Animações avançadas
-- **Font Awesome** - Ícones vetoriais
-- **JavaScript** - Interatividade e funcionalidades
+- **CSS3** - Estilos modernos e responsivos
+- **Tailwind CSS** - Framework CSS utility-first
+- **JavaScript ES6+** - Interatividade
+- **GSAP** - Animações profissionais
+- **Font Awesome** - Ícones
+- **Google Fonts** - Tipografia
 
-## 📱 Recursos
+## ✨ Características
 
 - ✅ Design responsivo (mobile-first)
-- ✅ Animações fluidas com GSAP
-- ✅ Integração WhatsApp para orçamentos
+- ✅ Otimizado para SEO
+- ✅ Animações modernas com GSAP
 - ✅ Formulários funcionais
+- ✅ Integração com WhatsApp
+- ✅ Modal de orçamento
+- ✅ Blog com busca
 - ✅ Performance otimizada
-- ✅ SEO friendly
+- ✅ Acessibilidade
 
-## 🛠️ Como usar
+## 🛠️ Como Usar
 
-1. Faça o download dos arquivos
-2. Abra index.html no navegador
-3. Ou use um servidor local para desenvolvimento:
+1. **Extraia todos os arquivos** mantendo a estrutura de pastas
+2. **Abra index.html** no navegador
+3. **Certifique-se** de que as pastas css/, js/, images/ estão no mesmo diretório
 
-```bash
-# Com Python
-python -m http.server 8000
+## 📱 Funcionalidades
 
-# Com Node.js
-npx serve .
+### Página Inicial
+- Hero section com call-to-action
+- Modal de orçamento integrado
+- Estatísticas da empresa
+- Seções de serviços
+- Depoimentos de clientes
+- Blog preview
 
-# Com PHP
-php -S localhost:8000
-```
+### Formulários
+- Modal de orçamento com validação
+- Envio direto para WhatsApp
+- Página de contato completa
+- Campos responsivos
 
-## 📂 Estrutura do Projeto
+### Blog
+- Sistema de busca
+- Artigos otimizados para SEO
+- Imagens otimizadas
+- Navegação intuitiva
 
-```
-rapidotitan-website/
-├── index.html              # Página principal
-├── servicos.html           # Página de serviços
-├── sobre.html              # Sobre a empresa
-├── blog.html               # Blog e artigos
-├── contato.html            # Formulário de contato
-├── codigo.html             # Visualização de código
-├── css/                    # Estilos CSS originais
-│   ├── style.css
-│   └── responsive.css
-├── js/                     # Scripts JavaScript
-│   ├── main.js
-│   └── animations.js
-├── images/                 # Imagens e ícones
-│   ├── logo.png
-│   ├── hero-image.jpg
-│   └── ...
-├── videos/                 # Arquivos de vídeo
-├── checklist_mudanca_residencial_rapido_titan.pdf
-├── YOUWARE.md              # Documentação do projeto
-└── README.md               # Este arquivo
-```
+### Mobile
+- Textos otimizados para mobile
+- Botões reposicionados
+- Navegação touch-friendly
+- Performance otimizada
 
-## 🎨 Personalização
+## 📞 Contato
 
-### Paleta de Cores
-- **Primária**: #00579B (Azul corporativo)
-- **Secundária**: #F58634 (Laranja vibrante)
-- **Cinza Escuro**: #333333
-- **Cinza Médio**: #666666
-- **Cinza Claro**: #f4f4f4
-
-### Tipografia
-- **Títulos**: Poppins (500, 600, 700)
-- **Corpo de texto**: Roboto (400, 700)
-- **Código**: JetBrains Mono
-
-### Configuração Tailwind
-O projeto usa Tailwind CSS via CDN com configuração personalizada:
-
-```javascript
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                primary: '#00579B',
-                secondary: '#F58634',
-                'dark-gray': '#333333',
-                'medium-gray': '#666666',
-                'light-gray': '#f4f4f4'
-            }
-        }
-    }
-}
-```
-
-## 🔧 Funcionalidades Principais
-
-### Integração WhatsApp
-- Botões de orçamento direcionam para WhatsApp
-- Formulário de contato envia dados via WhatsApp
-- Mensagens pré-formatadas para facilitar atendimento
-
-### Animações GSAP
-- Scroll-triggered animations
-- Smooth scrolling
-- Interactive hover effects
-- Loading animations
-
-### Responsividade
-- Mobile-first design
-- Breakpoints otimizados
-- Touch-friendly interactions
-- Crossbrowser compatibility
-
-## 📞 Informações da Empresa
-
-**Rápido Titan Mudanças e Fretes**
-- WhatsApp/Telefone: (15) 98119-4338
-- Email: contato@rapidotitan.com.br
-- Localização: Sorocaba/SP
-- Facebook: https://www.facebook.com/share/1AYjEiaBQn/
-- Instagram: @taniorapidotitan
-
-## 📝 Licença
-
-Este projeto foi desenvolvido exclusivamente para Rápido Titan Mudanças e Fretes.
-Todos os direitos reservados © 2025 Rápido Titan.
-
-## 🚀 Deploy
-
-O site pode ser hospedado em qualquer servidor web que suporte arquivos estáticos:
-- GitHub Pages
-- Netlify
-- Vercel
-- Servidor tradicional (Apache, Nginx)
-
-## 🔮 Futuras Melhorias
-
-- [ ] Sistema de blog dinâmico
-- [ ] Galeria de fotos de mudanças
-- [ ] Sistema de agendamento online
-- [ ] Chat online
-- [ ] Área do cliente
+- **Telefone/WhatsApp:** (15) 98119-4338
+- **Email:** taniorobertosilva@gmail.com
+- **Localização:** Sorocaba/SP
 
 ---
 
-**Desenvolvido com ❤️ para Rápido Titan**
+**Desenvolvido com foco em conversão, performance e experiência do usuário.**
+
+*Este é um sistema completo e funcional, pronto para produção.*

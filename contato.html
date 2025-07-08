@@ -7,7 +7,7 @@
     <meta name="description" content="Entre em contato com a Rapido Titan para dúvidas, informações ou orçamentos sobre mudanças e fretes em Sorocaba e Região.">
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://lib.youware.com/youware-lib-editor.1751867514.js" id="yourware-lib"></script><script src="https://cdn.tailwindcss.com/3.4.16"></script>
     
     <!-- GSAP para animações avançadas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -65,6 +65,26 @@
         .bg-secondary { background-color: var(--secondary-color); }
         .border-primary { border-color: var(--primary-color); }
         .border-secondary { border-color: var(--secondary-color); }
+        
+        /* Mobile email fix */
+        @media (max-width: 768px) {
+            .email-button {
+                padding: 8px 4px !important;
+                line-height: 1.2 !important;
+                height: auto !important;
+                min-height: 40px;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .email-text {
+                word-break: break-all;
+                font-size: 11px !important;
+                text-align: center;
+                line-height: 1.3;
+            }
+        }
     </style>
     
     <script>
@@ -193,8 +213,8 @@
                         Envie sua mensagem por email
                     </p>
                     <a href="mailto:taniorobertosilva@gmail.com" 
-                       class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm">
-                        taniorobertosilva@gmail.com
+                       class="bg-secondary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold inline-block transition-all duration-300 w-full text-sm email-button">
+                        <span class="email-text">taniorobertosilva@gmail.com</span>
                     </a>
                 </div>
 
@@ -494,7 +514,9 @@
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-400 text-sm">&copy; 2025 Rápido Titan. Todos os direitos reservados.</p>
                     <div class="mt-4 md:mt-0 flex items-center space-x-4">
-                       
+                        <a href="ver-codigo.html" target="_blank" class="text-gray-500 hover:text-gray-400 text-xs transition-colors duration-300">
+                            ver código
+                        </a>
                     </div>
                 </div>
             </div>
